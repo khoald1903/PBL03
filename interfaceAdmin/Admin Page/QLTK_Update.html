@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Cập nhật thông tin </title>
+    <link rel="stylesheet" href="/css/QLTK_Update.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="/fontawesome-free-6.4.0-web/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-store-alt'></i>
+            <span class="logo_name">NKH SHOP</span>
+        </div>
+        <ul class="nav-links">
+           <li>
+                <a href="Dashboard.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLSP.html" >
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Quản lí sản phẩm</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLDH.html" >
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Quản lí đơn hàng</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLTK_Show.html" class="active">
+                    <i class='bx bxs-user-account'></i>
+                    <span class="links_name">Quản lí tài khoản</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLKH.html">
+                    <i class='bx bxs-user-circle'></i>
+                    <span class="links_name">Quản lí khách hàng </span>
+                </a>
+            </li>
+            <li>
+                <a href="QLNV.html">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Quản lí nhân viên</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Thống kê</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+        <div>
+            <nav>
+                <div class="sidebar-button">
+                    <i class='bx bx-menu sidebarBtn'></i>
+                    <span class="dashboard">Quản lý tài khoản</span>
+                </div>
+                <a href=""class="sidebar-button anchor_logout">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span class="dashboard">Đăng xuất</span>
+                </a>
+            </nav>
+
+            <div class="home-content">
+                <div class="home__content-tool">
+                    <ul class="home__content-tool-list">
+                        <!-- Textbox tìm kiếm -->
+                         <li class="home__content-tool-item">
+                            <button type="button" class="btn__thongtin" onclick="window.location.href='QLTK_Show.html';">
+                              <i class="fa-regular fa-user"></i>
+                                Thông tin tài khoản
+                            </button>
+                        </li>
+                        
+                         <li class="home__content-tool-item">
+                            <button type="button" class="btn__capnhat" onclick="window.location.href='QLTK_Update.html';">
+                               <i class="fa-regular fa-pen-to-square"></i>
+                                Cập nhật thông tin
+                            </button>
+                        </li>    
+                        <li class="home__content-tool-item">
+                            <button type="button" class="btn__doimatkhau" onclick="window.location.href='QLTK_ChangePass.html';">
+                               <i class="fa-solid fa-lock-open" style="color: #fcfcfd;"></i>
+                                Đổi mật khẩu
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="home-content--infor">
+                    <ul class="home-content--infor-list">
+                        <li class="home-content--infor-item" >
+                            <label for="" class="lb_thongtinchung">THÔNG TIN TÀI KHOẢN</label>
+                        </li>
+                    </ul>
+                    <ul class="home-content--infor-list">
+                        <li class="home-content--infor-item">
+                            <label for="">Mã người dùng:</label>
+                        </li>
+                        <li class="home-content--infor-item home-content--infor-item--text">
+                            <input type="text">
+                        </li>
+                    </ul>
+                    <ul class="home-content--infor-list">
+                        <li class="home-content--infor-item">
+                            <label for="">Tên người dùng:</label>
+                        </li>
+                        <li class="home-content--infor-item home-content--infor-item--text">
+                            <input type="text">
+                        </li>
+                    </ul>
+                    <ul class="home-content--infor-list">
+                        <li class="home-content--infor-item">
+                            <label for="">Giới tính</label>
+                        </li>
+                        <li class="home-content--infor-item home-content--infor-item--text">
+                            <input type="text">
+                        </li>
+                    </ul>
+                    
+                    <ul class="home-content--infor-list">
+                        <li class="home-content--infor-item">
+                            <label for="">Email:</label>
+                        </li>
+                        <li class="home-content--infor-item home-content--infor-item--text">
+                            <input type="text">
+                        </li>
+                    </ul>
+                    <ul class="home-content--infor-list">
+                        <li class="home-content--infor-item">
+                            <label for="">Địa chỉ:</label>
+                        </li>
+                        <li class="home-content--infor-item home-content--infor-item--text">
+                            <input type="text" >
+                        </li>
+                    </ul>
+                    <ul class="home-content--infor-list">
+                        <li class="home-content--infor-item">
+                            <label for="">Số điện thoại:</label>
+                        </li>
+                        <li class="home-content--infor-item home-content--infor-item--text">
+                            <input type="text">
+                        </li>
+                    </ul>
+                     <ul class="home-content--infor-list">
+                        <li class="home-content--infor-item">
+                            <label for="">Ngày sinh:</label>
+                        </li>
+                        <li class="home-content--infor-item home-content--infor-item--text">
+                            <input type="datetime-local">
+                        </li>
+                    </ul>
+                    
+                </div>
+                 <div class="home-content--button">
+                    <button type="button" class="btn__luuthaydoi">
+                       Lưu thay đổi
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

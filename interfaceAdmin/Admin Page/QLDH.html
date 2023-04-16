@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Quản lý đơn hàng </title>
+    <link rel="stylesheet" href="/css/QLDH.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="/fontawesome-free-6.4.0-web/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-store-alt'></i>
+            <span class="logo_name">NKH SHOP</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="Dashboard.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLSP.html" >
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Quản lí sản phẩm</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLDH.html" class="active">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Quản lí đơn hàng</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLTK_Show.html">
+                    <i class='bx bxs-user-account'></i>
+                    <span class="links_name">Quản lí tài khoản</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLKH.html">
+                    <i class='bx bxs-user-circle'></i>
+                    <span class="links_name">Quản lí khách hàng </span>
+                </a>
+            </li>
+            <li>
+                <a href="QLNV.html">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Quản lí nhân viên</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Thống kê</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+        <div>
+            <nav>
+                <div class="sidebar-button">
+                    <i class='bx bx-menu sidebarBtn'></i>
+                    <span class="dashboard">Quản lý đơn hàng</span>
+                </div>
+                <a href=""class="sidebar-button anchor_logout">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span class="dashboard">Đăng xuất</span>
+                </a>
+            </nav>
+
+            <div class="home-content">
+                <div class="home__content-tool">
+                    <ul class="home__content-tool-list">
+                        <!-- Textbox tìm kiếm -->
+                        <li class="home__content-tool-item">
+                            <div >
+                                <input
+                                    type="text"
+                                    class="input__search"
+                                    placeholder="Tìm kiếm"
+                                />
+                            </div>
+                            <select class="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example"
+                                >
+                                <option selected>Mã đơn hàng</option>
+                                <option value="1">Mã khách hàng</option>
+                                <option value="2">Mã nhân viên</option>
+                                <option value="3">Mã đơn vị vận chuyển</option> 
+                                <option value="4">Ngày bán</option>
+                                <option value="5">Hình thức</option>
+                            </select>
+                        </li>
+                        <li class="home__content-tool-item">
+                            <select class="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example"
+                                >
+                                <option selected>Mới nhất</option>
+                                <option value="1">Tổng tiền: thấp đến cao</option>
+                                <option value="2">Tổng tiền: cao xuống thấp</option>
+                                <option value="3">Cũ nhất</option> 
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                    <table>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã đơn hàng</th>
+                                <th >Mã khách hàng</th>
+                                <th>Mã nhân viên</th>
+                                <th>Mã ĐVVC</th>
+                                <th>Ngày bán</th>
+                                <th >Hình thức</th>
+                                <th>Tổng tiền</th>
+                                <th>Xem chi tiết</th>
+                                <th>Tác vụ</th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>NSNJS</td>
+                                <td>WWFTG</td>
+                                <td>NRJUJ</td>
+                                <td>RFFGG</td>
+                                <td>17/02/2022</td>
+                                <td>Chuyển khoản</td>
+                                <td>2,090,000</td>
+                                <td>
+                                    <a href="QLDH_detail.html" class="td__a-xemchitiet">Xem chi tiết</a>
+                                </td>
+                                <td>
+                                    
+                                    <a href="" class="td__a-icon">
+                                        <i class="fa-solid fa-delete-left"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>NSNJS</td>
+                                <td>WWFTG</td>
+                                <td>NRJUJ</td>
+                                <td>RFFGG</td>
+                                <td>17/02/2022</td>
+                                <td>Chuyển khoản</td>
+                                 <td>2,090,000</td>
+                                <td>
+                                    <a href="QLDH_detail.html" class="td__a-xemchitiet">Xem chi tiết</a>
+                                </td>
+                                <td>
+                                    
+                                    <a href="QLDH_detail.html" class="td__a-icon">
+                                        <i class="fa-solid fa-delete-left"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>NSNJS</td>
+                                <td>WWFTG</td>
+                                <td>NRJUJ</td>
+                                <td>RFFGG</td>
+                                <td>17/02/2022</td>
+                                <td>Chuyển khoản</td>
+                                 <td>2,090,000</td>
+                                <td>
+                                    <a href="" class="td__a-xemchitiet">Xem chi tiết</a>
+                                </td>
+                                <td>
+                                    
+                                    <a href="" class="td__a-icon">
+                                        <i class="fa-solid fa-delete-left"></i>
+                                    </a>
+                                </td>
+                            </tr>          
+                    </table>
+               
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

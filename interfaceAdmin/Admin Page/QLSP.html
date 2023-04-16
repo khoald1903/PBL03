@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Admin Page </title>
+    <link rel="stylesheet" href="/css/QLSP.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="/fontawesome-free-6.4.0-web/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bx-store-alt'></i>
+            <span class="logo_name">NKH SHOP</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="Dashboard.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLSP.html" class="active" >
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Quản lí sản phẩm</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLDH.html" >
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Quản lí đơn hàng</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLTK_Show.html">
+                    <i class='bx bxs-user-account'></i>
+                    <span class="links_name">Quản lí tài khoản</span>
+                </a>
+            </li>
+            <li>
+                <a href="QLKH.html">
+                    <i class='bx bxs-user-circle'></i>
+                    <span class="links_name">Quản lí khách hàng </span>
+                </a>
+            </li>
+            <li>
+                <a href="QLNV.html">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Quản lí nhân viên</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Thống kê</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section">
+        <div>
+            <nav>
+                <div class="sidebar-button">
+                    <i class='bx bx-menu sidebarBtn'></i>
+                    <span class="dashboard">Quản lý sản phẩm</span>
+                </div>
+                <a href=""class="sidebar-button anchor_logout">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span class="dashboard">Đăng xuất</span>
+                </a>
+            </nav>
+
+            <div class="home-content">
+                <div class="home__content-tool">
+                    <ul class="home__content-tool-list">
+                        <!-- Textbox tìm kiếm -->
+                        <li class="home__content-tool-item">
+                            <div >
+                                <input
+                                    type="text"
+                                    class="input__search"
+                                    placeholder="Tìm kiếm"
+                                />
+                            </div>
+                            <select class="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example"
+                                >
+                                <option selected>Mã sản phẩm</option>
+                                <option value="1">Tên sản phẩm</option>
+                                <option value="2">Kích cỡ</option>
+                                <option value="3">Màu</option> 
+                                <option value="4">Nhãn hiệu</option>
+                                <option value="5">Loại mặt hàng</option>
+                                <option value="6">Giá bán</option>    
+                                <option value="7">Mức khuyến mãi</option>
+                                <option value="8">Số lượng</option>
+                            </select>
+                        </li>
+                        <li class="home__content-tool-item">
+                            <select class="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example"
+                                >
+                                <option selected>Mặc định</option>
+                                <option value="1">Giá bán: thấp đến cao</option>
+                                <option value="2">Giá bán: cao xuống thấp</option>
+                                <option value="3">Số lượng: thấp đến cao</option> 
+                                <option value="4">Số lượng: cao xuống thấp</option>
+                            </select>
+                        </li>
+                        <li class="home__content-tool-item">
+                            <button type="button" class="btn__themmoi" onclick="window.location.href='QLSP_Add.html';">
+                               <i class="fa-solid fa-circle-plus"></i>
+                                Thêm mới
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                    <table>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã sản phẩm</th>
+                                <th class="th-tendai">Tên sản phẩm</th>
+                                <th>Kích cỡ</th>
+                                <th>Màu</th>
+                                <th>Nhãn hiệu</th>
+                                <th class="th-tendai">Loại mặt hàng</th>
+                                <th>Giá bán</th>
+                                <th>Mức khuyến mãi</th>
+                                <th>Số lượng</th>                                
+                                <th>Tác vụ</th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>NWAJ1</td>
+                                <td>Nike Wmns Air Jordan 1</td>
+                                <td>38</td>
+                                <td>Đen</td>
+                                <td>Nike</td>
+                                <td>Giày Sneakers</td>
+                                <td>1,590,000</td>
+                                <td>10%</td>
+                                <td>28</td>
+                                <td>
+                                    <a href="QLSP_Update.html" class="td__a-icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                    <a href="" class="td__a-icon">
+                                        <i class="fa-solid fa-delete-left"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>NWAJ1</td>
+                                <td>Nike Wmns Air Jordan 1</td>
+                                <td>38</td>
+                                <td>Đen</td>
+                                <td>Nike</td>
+                                <td>Giày Sneakers</td>
+                                <td>1,590,000</td>
+                                <td>10%</td>
+                                <td>28</td>
+                                <td>
+                                    <a href="QLSP_Update.html" class="td__a-icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                    <a href="" class="td__a-icon">
+                                        <i class="fa-solid fa-delete-left"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                                <td>NWAJ1</td>
+                                <td>Nike Wmns Air Jordan 1</td>
+                                <td>38</td>
+                                <td>Đen</td>
+                                <td>Nike</td>
+                                <td>Giày Sneakers</td>
+                                <td>1,590,000</td>
+                                <td>10%</td>
+                                <td>28</td>
+                                <td>
+                                    <a href="QLSP_Update.html" class="td__a-icon">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                    <a href="" class="td__a-icon">
+                                        <i class="fa-solid fa-delete-left"></i>
+                                    </a>
+                                </td>
+                            </tr>                 
+                    </table>
+               
+            </div>
+        </div>
+    </section>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
