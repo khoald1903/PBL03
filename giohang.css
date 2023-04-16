@@ -1,0 +1,407 @@
+
+ul{
+    list-style-type: none;
+} 
+
+.product__header-list{
+    background-color: rgb(255, 255, 255);
+    border: 0.3px solid rgb(164, 145, 145);
+    display: grid;
+    grid-template-columns: 28% auto auto auto auto auto auto;
+}
+.product__header-list > li{
+    font-size: 1.7rem;
+}
+.product__header-item--sanpham
+{
+    padding-left: 40px;
+}
+.product__header-item--mausac {
+    padding-left: 20px;
+}
+.product__header-item--thaotac
+{
+    padding-right: 20px;
+}
+/*  */
+
+
+.products {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.product__header{
+    margin-top: 50px;
+}
+.product__list {
+    
+    border: 0.3px solid rgb(164, 145, 145);
+}
+.product__detail{
+    border: 0.3px solid rgb(164, 145, 145);
+}
+.product__detail-list {
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: 28% auto auto auto auto auto auto;
+    margin-bottom: 0px;
+    padding: 10px 0 10px 20px;
+}
+.product__detail-list > li {
+    margin: auto 0;
+    font-size: 1.4rem;
+}
+.product-price {
+    font-weight: 700;
+}
+.product-total {
+    font-weight: 700;
+    color: red;
+}
+.product__detail-line{
+    margin: 0 auto;   
+    max-width: 900px;
+    border: 0.5px dashed rgb(162, 145, 145);
+}
+/* Icon thùng rác xóa */
+.product-action--trash{
+    color: black;
+}
+.product-action--trash:hover{
+    color:#FEA116
+}
+.content-title {
+    margin: 20px 0 0 20px;
+}
+
+/* .product__infortrans{
+   // display: flex;
+    min-width: 1500px;
+    margin: 0 auto;
+}
+.product__infortrans-item{
+    display: inline-block;
+} */
+
+/* .product__infortrans
+{
+    min-width: 1400px;
+    margin-top: 30px;
+} */
+/* .product__infortrans-word {
+    margin: 20px 0 0 20px;
+    position: relative;
+    padding-right: 16px;
+} */
+
+/* .product__infortrans-word::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 0;
+    border-top: 1px dashed #bec5cb;
+    z-index: -1;
+} */
+
+
+
+
+/* .bg-secondary {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+}
+.bg-secondary {
+    background-color: #F5F5F5 !important;
+} */
+/* .position-relative {
+    position: relative !important;
+}
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+.bg-secondary {
+    background-color: aliceblue;
+}
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 0;
+    border-top: 1px dashed #bec5cb;
+    z-index: -1;
+} */
+
+.main__title{
+   margin: 30px 0 40px 30px;
+   display: flex;
+}
+.main__title-item--line{
+    flex: 1;
+}
+.main__title-item--midline {
+    border: 0.3px dashed rgb(194, 187, 187);
+    margin: 15px 10px;
+}
+
+.shoppingcart{
+    margin: 40px 0 0 190px;
+    display: flex;
+    flex-direction: column;
+}
+.shoppingcart__list{
+    list-style: none;   
+}
+.shoppingcart__list > li{
+    display: inline-block;
+    font-size: 20px;
+}
+.shoppingcart__item--price-tongtienhang{
+    padding-left: 100px;
+    font-weight: 700;
+}
+.shoppingcart__item--price-phivanchuyen{
+    padding-left: 105px;
+    font-weight: 700;
+}
+.shoppingcart__item--price-tong{
+    padding-left: 210px;
+    font-weight: 700;
+    color: red;
+}
+.shoppingcart__line{
+    margin: 20px;
+    max-width: 500px;
+    border: 0.3px dashed rgb(123, 114, 114);
+}
+
+.informationtransportation{    
+    max-width: 1100px;
+    max-height: 400px;
+    display: flex;
+    margin: 0 auto;
+    border: 0.3px solid rgba(141, 126, 126, 0.607);
+    
+}
+.informationtransportation__img
+{
+    
+    border-right: 0.5px solid black;
+     /* display: flex;
+    justify-content: center;
+    max-width: 400px;
+    box-sizing: border-box; 
+    margin: 0 auto; 
+    object-fit: contain;  
+     */
+}
+.informationtransportation__infor
+{   
+    /* background-color: rgba(27, 25, 25, 0.647); */
+    background-color: #666565;
+    flex: 1;
+}
+.informationtransportation__infor--title{
+    color: white;
+    padding-left: 28px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.informationtransportation__infor-list > li{
+    margin: 20px;
+}
+.informationtransportation__infor--button {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.button-thanhtoan {
+    color: white;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 124px;
+    height: 34px;
+    line-height: 1.6rem;
+    padding: 0 8px;
+    border: 0.5px solid rgb(213, 213, 174);
+    border-radius: 9px;
+    outline: none;
+    text-decoration: none;
+    background-color: #FEA116;
+    font-size: 15px;   
+}
+.button-thanhtoan:hover{
+    background-color: #fea116de;
+}
+.form-control {
+    font-size: 1.4rem !important;
+}
+
+
+.header__navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+.header__navbar-list {
+    margin: auto 0px;
+    padding-right: 30px;
+}
+.header__navbar-item{
+    display :inline-block;
+    font-size: 1.6rem;   
+    font-weight: 500;
+    margin: 0 16px;
+
+    position: relative;
+}
+.header__navbar-item--has-notify:hover .header__dropdown--NAM,
+ .header__navbar-item--has-notify:hover .header__dropdown--NU,
+.header__navbar-item--has-notify:hover .header__dropdown--icon {
+    display: block;
+}
+/* Di chuột vào NAM */
+.header__dropdown--NAM, 
+.header__dropdown--NU,
+.header__dropdown--icon{
+    position: absolute;
+    /* top: 118%; */
+    left: -10px;
+    width: 120px;
+    background-color: rgb(255, 253, 253);
+    border: 1px solid #D3D3D3;
+    /* cursor: default; */
+
+    /* transform-origin: top right; */
+    /* Chỉ định đc tâm của scale*/
+    animation: headerNotifyGrowth ease-in 0.2s;
+    will-change: opacity, transform;
+    /* Trình duyệt sẽ tối ưu chuyển động  */
+    /* Chỉ hiện thị khi hover vào Thông báo */
+    display: none;
+}
+.header__dropdown--icon {
+    left: -30px;
+    width: 140px;
+}
+/*  Di chuột vào item "Thông báo" hiện bảng này*/
+@keyframes headerNotifyGrowth {
+
+    /* Hiện lớn và rõ dần */
+    from {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+.header__dropdown--NAM-list, 
+.header__dropdown--NU-list,
+.header__dropdown--icon-list{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+.header__dropdown--NAM-item,
+.header__dropdown--NU-,
+.header__dropdown--icon-item{
+    padding: 5px 0;
+    font-size: 1.4rem;
+}
+.header__dropdown--NAM-link,
+.header__dropdown--NU-link,
+.header__dropdown--icon-link {
+    text-decoration: none;
+    color: black;
+}
+.header__dropdown--NAM-link:hover,
+.header__dropdown--NU-link:hover,
+.header__dropdown--icon-link:hover{
+    color: rgba(234, 234, 99, 0.743)
+}
+
+.header__navbar-item--a{
+    text-decoration: none;
+    color: white;
+}
+.header__navbar-item--a:hover{
+    color: yellow;
+    cursor: pointer;
+}
+.header__navbar-item--logo{
+    width: 300px;
+    height: 70px;
+
+}
+.header__navbar-item--icon-giohang{
+    color: #FAD410;
+}
+.header__title{
+    display: flex;
+    flex-direction: column;
+}
+.header__title-list{
+    margin: 0 auto;
+}
+.header__title--large{
+    padding-top: 50px;
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+}
+
+.header__title-item{
+    display: inline-block;
+}
+.header__title--small > li{
+    font-size: 18px;
+    padding: 20px 5px 0 5px;
+    font-weight: 500;
+    color: white
+}
+.header__title-item--giohang{
+    color: #FAD410 !important;
+
+}
+
+
+/* Footer */
+.footer__infor{
+    margin-top: 70px;
+    border: 0.5px solid rgb(44, 40, 40);
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+    
+}
+/* ul */
+.footer__list{
+    padding-top: 30px;
+}
+.footer__item{
+    padding: 8px;
+}
+.footer__item--icon{
+    color: black;  
+    font-size: 30px;  
+}
+.footer__item--danhmucsp{
+    font-size: 1.4rem;
+    color: black;
+    text-decoration: none;
+}
+.footer__item--contact{
+    font-weight: 400;
+    max-width: 300px;
+}
