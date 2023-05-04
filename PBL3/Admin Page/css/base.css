@@ -1,0 +1,41 @@
+:root {
+    --white-color: white;
+    --black-color: #000;
+    --text-color: #333; 
+}
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%; 
+             /* 10px */
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    /* background-color: rgb(87, 161, 161) ; */
+
+}
+body
+{
+    background-color: #efeff6 !important;
+}
+.grid {
+    /* Width màn hình: 1536px */
+    width: 1450px;
+    max-width: 100%;
+    /*Với những màn hình có kích thước lớn hơn 1200px -> Sử dụng
+    - Nếu nhỏ hơn -> Max-width tác dụng -> Giảm kích thước của width để bằng màn hình <1200*/
+    margin: 0 auto;
+        /*  Tự động căn giữa khối này khi nằm trong khối khác*/
+
+}
+.grid__full-width {
+    /* Trường hợp không muốn sử dụng width=1200px */
+    width: 100%;
+}
+.grid__row {
+    display: flex;
+        /* Những thẻ nằm trong class này sẽ cùng trên một hàng ngang*/
+    flex-wrap: wrap;
+        /* Tổng độ dài của những item con vượt quá grid__row -> nhảy xuống hàng*/
+}

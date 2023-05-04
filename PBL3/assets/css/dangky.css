@@ -1,0 +1,232 @@
+ul {
+    list-style: none;
+}
+
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.header__navbar-list {
+    margin: auto 0px;
+    padding-right: 30px;
+}
+
+.header__navbar-item {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 0 16px;
+
+    position: relative;
+}
+
+.header__navbar-item--has-notify:hover .header__dropdown--NAM,
+.header__navbar-item--has-notify:hover .header__dropdown--NU {
+    display: block;
+}
+
+/* Di chuột vào NAM */
+.header__dropdown--NAM,
+.header__dropdown--NU {
+    position: absolute;
+    /* top: 118%; */
+    left: -10px;
+    width: 120px;
+    background-color: rgb(255, 253, 253);
+    border: 1px solid #D3D3D3;
+    /* cursor: default; */
+
+    /* transform-origin: top right; */
+    /* Chỉ định đc tâm của scale*/
+    animation: headerNotifyGrowth ease-in 0.2s;
+    will-change: opacity, transform;
+    /* Trình duyệt sẽ tối ưu chuyển động  */
+    /* Chỉ hiện thị khi hover vào Thông báo */
+    display: none;
+}
+
+/*  Di chuột vào item "Thông báo" hiện bảng này*/
+@keyframes headerNotifyGrowth {
+
+    /* Hiện lớn và rõ dần */
+    from {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+.header__dropdown--NAM-list,
+.header__dropdown--NU-list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+}
+
+.header__dropdown--NAM-item,
+.header__dropdown--NU-item {
+    padding: 5px 0;
+    font-size: 1.4rem;
+}
+
+.header__dropdown--NAM-link,
+.header__dropdown--NU-link {
+    text-decoration: none;
+    color: black;
+}
+
+.header__dropdown--NAM-link:hover,
+.header__dropdown--NU-link:hover {
+    color: rgba(234, 234, 99, 0.743)
+}
+
+.header__navbar-item--a {
+    text-decoration: none;
+    color: white;
+}
+
+.header__navbar-item--a:hover {
+    color: yellow;
+    cursor: pointer;
+}
+
+.header__navbar-item--logo {
+    width: 300px;
+    height: 70px;
+
+}
+
+.header__title {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__title-list {
+    margin: 0 auto;
+}
+
+.header__title--large {
+    padding-top: 50px;
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+}
+
+.header__title-item {
+    display: inline-block;
+}
+
+.header__title--small>li {
+    font-size: 18px;
+    padding: 20px 5px 0 5px;
+    font-weight: 500;
+    color: white
+}
+
+.header__title-item--yellow {
+    color: #FAD410 !important;
+
+}
+
+/* Đăng ký màu vàng */
+.header__navbar-item--yellow{
+    color: #FAD410;
+}
+/* Main */
+.main__title {
+    margin: 30px 0 40px 30px;
+    display: flex;
+}
+
+.main__title-item--line {
+    flex: 1;
+}
+
+.main__title-item--midline {
+    border: 0.3px dashed rgb(194, 187, 187);
+    margin: 15px 10px;
+}
+.main__block {
+    margin: 0 auto;
+    background-color: rgb(250, 249, 249);
+    max-width: 500px;
+    border: 0.3px solid rgb(176, 170, 170);
+    display: flex;
+}
+
+.main__infor-list {
+    padding: 30px 40px;
+}
+
+.main__infor-item {
+    padding: 6px 10px;
+}
+
+.main__infor-item--title {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.main__infor-item--content {
+    width: 350px;
+    height: 35px;
+}
+
+/* Button đăng ký*/
+.main__button {
+    margin: 20px 700px;
+}
+
+.main__button-dangky{
+    border-radius: 5px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    background-color: #E6C61F;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+
+}
+/* Footer */
+.footer__infor {
+    margin-top: 70px;
+    border: 0.5px solid rgb(44, 40, 40);
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+/* ul */
+.footer__list {
+    padding-top: 30px;
+}
+
+.footer__item {
+    padding: 8px;
+}
+
+.footer__item--icon {
+    color: black;
+    font-size: 30px;
+}
+
+.footer__item--danhmucsp {
+    font-size: 1.4rem;
+    color: black;
+    text-decoration: none;
+}
+
+.footer__item--contact {
+    font-weight: 400;
+    max-width: 300px;
+}
+
+
