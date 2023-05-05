@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title> Xem chi tiết đơn hàng </title>
-    <link rel="stylesheet" href="/css/QLDH_Detail.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/main.css">
+   <link rel="stylesheet" href="/Admin Page/css/QLDH_Detail.css">
+    <link rel="stylesheet" href="/Admin Page/css/base.css">
+    <link rel="stylesheet" href="/Admin Page/css/main.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
@@ -14,16 +14,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="stylesheet"
-      href="/fontawesome-free-6.4.0-web/css/all.css"
-    />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
-
+    <!-- Link icon  -->
+    <link rel="stylesheet" href="/Admin Page/fontawesome-free-6.4.0-web/css/all.css" />
 </head>
 
 <body>
@@ -69,10 +66,16 @@
                     <span class="links_name">Quản lí nhân viên</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">Thống kê</span>
+            <li id="QLNCC">
+                <a href="/Admin Page/QLNCC.html">
+                    <i class="fa-solid fa-truck-fast" style="color: #ffffff;"></i>
+                    <span class="links_name">Quản lí nhà cung cấp</span>
+                </a>
+            </li>
+            <li id="QLKho">
+                <a href="/Admin Page/QLKho.html">
+                    <i class="fa-solid fa-warehouse" style="color: #ffffff;"></i>
+                    <span class="links_name">Quản lí kho hàng</span>
                 </a>
             </li>
         </ul>
@@ -84,7 +87,7 @@
             <nav>
                 <div class="sidebar-button">
                     <i class='bx bx-menu sidebarBtn'></i>
-                    <span class="dashboard">Quản lý sản phẩm > Chỉnh sửa</span>
+                    <span class="dashboard">Quản lý đơn hàng > Xem chi tiết </span>
                 </div>
                 <a href=""class="sidebar-button anchor_logout">
                   <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -93,95 +96,92 @@
             </nav>
 
             <div class="home-content">
-                <div class="home-content--infor">
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item" >
-                            <label for="" class="lb_thongtinchung">CHI TIẾT ĐƠN HÀNG</label>
-                        </li>
-                    </ul>
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Mã đơn hàng:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <input type="text">
-                        </li>
-                    </ul>
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Tên khách hàng:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <input type="text">
-                        </li>
-                    </ul>
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Số điện thoại:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <input type="text">
-                        </li>
-                    </ul>
-                    
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Email:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <input type="text">
-                        </li>
-                    </ul>
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Địa chỉ:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <input type="text" >
-                        </li>
-                    </ul>
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Các sản phẩm:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--table">
-                            <table>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Mã sản phẩm</th>
-                                    <th>Số lượng</th>
-                                    <th>Thành tiền</th>
-                                </tr>
-                                <tr>
-                                    <th>1</th>
-                                    <td>NWAJ1</td>
-                                    <td>2</td>
-                                    <td>1,945,000</td>
-                                </tr>
-                                <tr>
-                                    <th>1</th>
-                                    <td>NWAJ1</td>
-                                    <td>2</td>
-                                    <td>1,945,000</td>
-                                </tr>                                    
-                                
-                            </table>
-               
-                        </li>
-                    </ul>
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Tổng tiền:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <input type="text">
-                        </li>
-                    </ul>
-                   
+                <div class="home-content--title">
+                    <label for="" class="lb_thongtinchung">THÔNG TIN CHUNG</label>
                 </div>
-                <div class="home-content--button">
-                    <button type="button" class="btn__luuthaydoi" onclick="window.location.href='QLDH.html';">
-                       Trở về
+                <div class="home-content--infor">
+                    <div class="home-content--infor-left">
+                        <ul class="home-content--infor-list">
+                            <li class="home-content--infor-item">
+                                <label for="">Mã đơn hàng:</label>
+                            </li>
+                            <li class="home-content--infor-item home-content--infor-item--text">
+                                <input type="text" id="ID" class="input_text">
+                            </li>
+                        </ul>
+                        <ul class="home-content--infor-list">
+                            <li class="home-content--infor-item">
+                                <label for="">Tên khách hàng:</label>
+                            </li>
+                            <li class="home-content--infor-item home-content--infor-item--text">
+                                <input type="text" id="CustomerName" class="input_text">
+                            </li>
+                        </ul>
+                        <ul class="home-content--infor-list">
+                            <li class="home-content--infor-item">
+                                <label for="">Số điện thoại:</label>
+                            </li>
+                            <li class="home-content--infor-item home-content--infor-item--text">
+                                <input type="text" id="Phone" class="input_text">
+                            </li>
+                        </ul>
+                        
+                        <ul class="home-content--infor-list">
+                            <li class="home-content--infor-item">
+                                <label for="">Email:</label>
+                            </li>
+                            <li class="home-content--infor-item home-content--infor-item--text">
+                                <input type="email" id="Email" class="input_text" >
+                            </li>
+                        </ul>
+                       
+                    </div>   
+                    <div class="home-content--infor-right">
+                        <ul class="home-content--infor-list">
+                            <li class="home-content--infor-item">
+                                <label for="">Địa chỉ:</label>
+                            </li>
+                            <li class="home-content--infor-item home-content--infor-item--text">
+                                <input type="text" id="Address" class="input_text" >
+                            </li>
+                        </ul>
+                        <ul class="home-content--infor-list">
+                            <li class="home-content--infor-item">
+                                <label for="">Các sản phẩm:</label>
+                            </li>
+                            <li class="home-content--infor-item home-content--infor-item--table">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <table id="listProductTable" class="table table-bordered 
+                                                            table-condensed table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Mã sản phẩm</th>
+                                                        <th>Số lượng</th>
+                                                        <th>Thành tiền</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+            </div>
+                            </li>
+                        </ul>
+                        <ul class="home-content--infor-list">
+                            <li class="home-content--infor-item">
+                                <label for="">Tổng tiền:</label>
+                            </li>
+                            <li class="home-content--infor-item home-content--infor-item--text">
+                                <input type="text" id="Total" class="input_text">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="home-content--button">
+                   <button class="snip1582" onclick="returnQLDH()">
+                        <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+                        Trở về
                     </button>
                 </div>
             </div>
@@ -191,10 +191,9 @@
 
 
     </section>
-
-
-
-    <script src="app.js"></script>
+    <script type="text/javascript" src="/Admin Page/js/app.js"></script>
+    <script src="/Admin Page/js/QLDH_detail.js"></script>
+    <script src="/Admin_Page.js"></script>
 
 </body>
 

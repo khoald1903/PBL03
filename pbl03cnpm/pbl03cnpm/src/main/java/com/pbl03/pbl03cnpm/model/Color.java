@@ -16,11 +16,12 @@ public class Color {
 	public Color() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Color(String maMau, String tenMau) {
 		super();
 		this.maMau = maMau;
 		this.tenMau = tenMau;
+
 	}
 
 	public String getMaMau() {

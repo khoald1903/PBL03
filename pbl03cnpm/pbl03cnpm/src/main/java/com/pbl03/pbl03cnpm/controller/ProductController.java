@@ -1,6 +1,6 @@
 package com.pbl03.pbl03cnpm.controller;
 
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,13 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pbl03.pbl03cnpm.model.Color;
-import com.pbl03.pbl03cnpm.model.HandleProduct;
 import com.pbl03.pbl03cnpm.model.Khuyenmai;
 import com.pbl03.pbl03cnpm.model.MatHang;
 import com.pbl03.pbl03cnpm.model.NhanHieu;
 import com.pbl03.pbl03cnpm.model.Product;
+import com.pbl03.pbl03cnpm.model.ProductDetail;
 import com.pbl03.pbl03cnpm.model.ProductDto;
-import com.pbl03.pbl03cnpm.model.ProductID;
 import com.pbl03.pbl03cnpm.model.ResponseObject;
 import com.pbl03.pbl03cnpm.model.Size;
 import com.pbl03.pbl03cnpm.repositories.KhuyenmaiRepo;
@@ -32,6 +30,7 @@ import com.pbl03.pbl03cnpm.repositories.KichcoRepo;
 import com.pbl03.pbl03cnpm.repositories.MathangRepo;
 import com.pbl03.pbl03cnpm.repositories.MauRepo;
 import com.pbl03.pbl03cnpm.repositories.NhanhieuRepo;
+import com.pbl03.pbl03cnpm.repositories.ProductDetailRepo;
 import com.pbl03.pbl03cnpm.repositories.ProductDtoRepo;
 import com.pbl03.pbl03cnpm.repositories.ProductRepo;
 
@@ -53,6 +52,8 @@ public class ProductController {
 	ProductDtoRepo productDtoRepo;
 	@Autowired
 	private ProductRepo productRepo;
+	@Autowired
+	private ProductDetailRepo productDetailRepo;
 	@GetMapping("/kc")
 	List<Size> getKC(){
 		return kichcoRepo.findAll();
@@ -80,19 +81,38 @@ public class ProductController {
 	
 	@GetMapping("")
 	List<Product> getAll(){
-		return productRepo.findAll()
+		List<Product> temp = productRepo.findAll()
 						  .stream()
-						  .filter(t -> t.getTrangthai() == true)
 						  .toList();
+		for(Product i : temp) {
+			List<ProductDetail> productDetails = i.getProductDetails();
+			List<ProductDetail> productDetails1 = new ArrayList<>();
+			for(ProductDetail j : productDetails) {
+				if(j.getTrangthai() == true) productDetails1.add(j);
+			}
+			i.setProductDetails(productDetails1);
+		}
+		return temp;
 	}
 	
-	@PutMapping("delete/{masp}&{makc}&{mamau}")
-	ResponseEntity<ResponseObject> deleteProduct(@PathVariable String id, @PathVariable String masp, @PathVariable String makc, @PathVariable String mamau){
-		Optional<ProductDto> updatedProduct = productDtoRepo.findByProductIDMaSPAndProductIDMaKCAndProductIDMaMau(masp, makc, mamau);
+	@GetMapping("/getProduct/{masp}")
+	ResponseEntity<ResponseObject> getProduct(@PathVariable String masp){
+		Optional<Product> product = productRepo.findById(masp);
+		if(product.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("failed", "Cannot find product ", ""));
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(
+				new ResponseObject("ok", "Find successfully", product.get()));
+	}
+	
+	@PutMapping("delete/{masp}&{mamau}&{makc}")
+	ResponseEntity<ResponseObject> deleteProduct(@PathVariable String masp, @PathVariable String mamau, @PathVariable String makc){
+		Optional<ProductDetail> updatedProduct = productDetailRepo.findByMaSPAndMaKCAndMaMau(masp, makc, mamau);
 		if(updatedProduct.isPresent()) {
-			ProductDto temp = updatedProduct.get();
+			ProductDetail temp = updatedProduct.get();
 			temp.setTrangthai(false);
-			productDtoRepo.save(temp);
+			productDetailRepo.save(temp);
 			return ResponseEntity.status(HttpStatus.OK).body(
 					new ResponseObject("ok", "Delete successfully", ""));
 		}
@@ -100,73 +120,54 @@ public class ProductController {
 				new ResponseObject("failed", "Can not find product to delete", ""));
 	}
 	
-	@PutMapping("/update/{masp}&{makc}&{mamau}")
-	ResponseEntity<ResponseObject> updateProduct(@RequestBody ProductDto newProduct, @PathVariable String masp, @PathVariable String makc, @PathVariable String mamau){
+	@PutMapping("/update/{masp}")
+	ResponseEntity<ResponseObject> updateProduct(@RequestBody ProductDto newProduct, @PathVariable String masp){
 		
-		ProductDto updatedProduct = productDtoRepo.findByProductIDMaSPAndProductIDMaKCAndProductIDMaMau(masp, makc, mamau)
+		ProductDto updatedProduct = productDtoRepo.findById(masp)
 				.map(product -> {
 					product.setTenSP(newProduct.getTenSP());
-					product.setProductID(newProduct.getProductID());
 					product.setMaNH(newProduct.getMaNH());
 					product.setMaMH(newProduct.getMaMH());
 					product.setMaKM(newProduct.getMaKM());
-					product.setSoLuong(newProduct.getSoLuong());
 					product.setGiaBan(newProduct.getGiaBan());
 					product.setHinhAnh(newProduct.getHinhAnh());
 					product.setMoTa(newProduct.getMoTa());
 					product.setTrangthai(newProduct.getTrangthai());
 					return productDtoRepo.save(product);
 				}).orElseGet(() -> {
-					newProduct.setProductID(newProduct.getProductID());
+					newProduct.setMaSP(masp);
 					return productDtoRepo.save(newProduct);
 				});
 		return ResponseEntity.status(HttpStatus.OK).body(
 				new ResponseObject("ok", "Update successfully", updatedProduct));
 	}
 	
-	@GetMapping("/list/{id}&{text}")
-	List<Product> getProducts(@PathVariable Integer id, @PathVariable String text){
-		List<Product> products = null;
-			if(id == 1) {
-				products = productRepo.findAll().stream().filter(t -> t.getTrangthai() == true).toList();
-			}
-			else if(id == 2) {
-				products = productRepo.findAll().stream()
-						 .filter(t -> t.getTrangthai() == true)
-						 .sorted((o1, o2) -> (o1.getGiaban()-o2.getGiaban()))
-						 .toList();
-			}
-			else if(id == 3) {
-				products = productRepo.findAll().stream()
-							.filter(t -> t.getTrangthai() == true)
-							.sorted((o1, o2) -> (o2.getGiaban()-o1.getGiaban()))
-							.toList();
-			}
-			else if(id == 4)
-			{
-				products = productRepo.findAll().stream()
-							.filter(t -> t.getTrangthai() == true)
-							.sorted((o1, o2) -> (o1.getSoluong()-o2.getSoluong()))
-							.toList();
-			}
-			else if(id == 5)
-			{
-				products = productRepo.findAll().stream()
-						  .filter(t -> t.getTrangthai() == true)
-						  .sorted((o1, o2) -> (o2.getSoluong()- o1.getSoluong()))
-						  .toList();
-			}
-			if(id != null) {
-				return products.stream()
-						.filter(t -> t.getTrangthai() == true)
-						.filter(t -> t.getTenSP().contains(text.toUpperCase()))
-						.toList();
-			}
-			else return products;
-	}
+//	@GetMapping("/list/{id}&{text}")
+//	List<Product> getProducts(@PathVariable Integer id, @PathVariable String text){
+//		List<Product> products = null;
+//			if(id == 1) {
+//				products = getAll();
+//			}
+//			else if(id == 2) {
+//				products = getAll().stream()
+//						 .sorted((o1, o2) -> (Integer.parseInt(o1.getTenSP())-Integer.parseInt(o2.getTenSP())))
+//						 .toList();
+//			}
+//			else if(id == 3) {
+//				products = getAll().stream()
+//							.sorted((o1, o2) -> (Integer.parseInt(o1.getMh().toString())-Integer.parseInt(o2.getMh().toString())))
+//							.toList();
+//			}
+//			if(id != null) {
+//				return products.stream()
+//						.filter(t -> t.getTenSP().contains(text.toUpperCase()))
+//						.toList();
+//			}
+//			else return products;
+//	}
 	@PostMapping("/create")
 	ResponseEntity<ResponseObject> createProduct(@RequestBody ProductDto newProduct){
-		boolean createProduct = productDtoRepo.existsById(newProduct.getProductID());
+		boolean createProduct = productDtoRepo.existsById(newProduct.getMaSP());
 		if(createProduct) {
 			return ResponseEntity.status(HttpStatus.OK).body(
 					new ResponseObject("failed", "Create Error cause product was existed", ""));
@@ -175,15 +176,5 @@ public class ProductController {
 		return ResponseEntity.status(HttpStatus.OK).body(
 				new ResponseObject("ok", "Create successfully", newProduct));
 	}
-	
-	@GetMapping("/getProduct/{masp}&{makc}&{mamau}")
-	ResponseEntity<ResponseObject> getProduct(@PathVariable String masp, @PathVariable String makc, @PathVariable String mamau){
-		Optional<Product> product = productRepo.findByProductIDMaSPAndProductIDMaKCAndProductIDMaMau(masp, makc, mamau);
-		if(product.isEmpty()) {
-			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject("failed", "Cannot find product ", ""));
-		}
-		return ResponseEntity.status(HttpStatus.OK).body(
-				new ResponseObject("ok", "Find successfully", product.get()));
-	}
+
 }

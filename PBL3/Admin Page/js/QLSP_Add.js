@@ -4,7 +4,6 @@ $(".hover").mouseleave(
     $(this).removeClass("hover");
   }
 );
-var LinkString = "";
 function loadFiles(event) {
   var images = document.getElementById('output-images');
   for (var i = 0; i < event.target.files.length; i++) {
@@ -13,38 +12,11 @@ function loadFiles(event) {
     image.width = 200;
     images.appendChild(image);
 
-    //console.log(event.target.files[i]);
-    var file = event.target.files[i];
-    LinkString = LinkString + file.name + "|";
+    
   }
 };
 
-const select_Size = document.getElementById("size-select");
-fetch("http://localhost:8089/sanpham/kc")
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(valuee => {
-      const option = document.createElement("option");
-      option.value = valuee.maKC;
-      option.textContent = valuee.soKC;
-      select_Size.appendChild(option);
-    });
-  })
-  .catch(error => console.error(error));
 
-
-const select_Color = document.getElementById("color-select");
-fetch("http://localhost:8089/sanpham/mau")
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(valuee => {
-      const option = document.createElement("option");
-      option.value = valuee.maMau;
-      option.textContent = valuee.tenMau;
-      select_Color.appendChild(option);
-    });
-  })
-  .catch(error => console.error(error));
 
 const select_Brand = document.getElementById("brand-select");
 fetch("http://localhost:8089/sanpham/nh")
@@ -84,22 +56,20 @@ fetch("http://localhost:8089/sanpham/km")
     });
   })
   .catch(error => console.error(error));
-
+var productId;
 function AddProduct() {
-  const product = {
-    maSP: document.querySelector("#MaSP").value,
+   const product = {
+   maSP: document.querySelector("#MaSP").value,
     tenSP: document.querySelector("#TenSP").value,
     giaBan: document.querySelector("#giaban").value,
-    maKC: document.querySelector("#size-select").value, // Add # before id selector
-    maMau: document.querySelector("#color-select").value, // Add # before id selector
-    maNH: document.querySelector("#brand-select").value, // Add # before id selector
-    maMH: document.querySelector("#category-select").value, // Add # before id selector
-    maKM: document.querySelector("#discount-select").value, // Add # before id selector
-    soLuong: document.querySelector("#soluong").value,
-    hinhAnh: LinkString,
+    maNH: document.querySelector("#brand-select").value,
+    maMH: document.querySelector("#category-select").value,
+    maKM: document.querySelector("#discount-select").value,
+    hinhAnh: document.getElementById('input-images').value,
     moTa: document.querySelector("#input_mota").value
   };
-
+  console.log(product);
+  productId = product.maSP;
   const options = {
     method: 'POST',
     headers: {
@@ -111,11 +81,29 @@ function AddProduct() {
   fetch('http://localhost:8089/sanpham/create', options)
     .then(response => {
       console.log(response);
+      window.location.href = `QLSP_AddDetail.html?id=${productId}`;
       // Handle response
     })
     .catch(error => console.error(error));
 }
-const AddButton = document.querySelector("#Add");
+const AddButton = document.querySelector("#continue");
+
 AddButton.addEventListener("click", function () {
   AddProduct();
 });
+
+// Active
+$(document).ready(function(){
+      $('#ul-size li').click(function(){
+           $('#ul-size li.select-size-active').removeClass('select-size-active');
+           $(this).addClass('select-size-active');
+       });
+});
+
+$(document).ready(function(){
+      $('#ul-color li').click(function(){
+           $('#ul-color li.select-color-active').removeClass('select-color-active');
+           $(this).addClass('select-color-active');
+       });
+});
+

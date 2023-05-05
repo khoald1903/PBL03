@@ -29,5 +29,15 @@ function returnQLTK_Update(){
 function returnQLTK_ChangePass(){
     location.replace("QLTK_ChangePass.html");
 }
+function returnQLKho_Add(){
+    location.replace("QLKho_Add.html");
+}
+function returnQLNCC_Add(){
+    location.replace("QLNCC_Add.html");
+}
+function returnQLSP_AddDetail(){
+    location.replace("QLSP_AddDetail.html");
+}
+
 
 

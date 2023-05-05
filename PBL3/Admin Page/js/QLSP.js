@@ -84,7 +84,7 @@ function Sort() {
   .then(data => {
     //console.log(data);
     data.forEach(user => {
-      const arr = user.hinhanh.split("|");
+      
      // console.log(arr);
       if ($("#productTable tbody").length == 0) {
         $("#productTable").append("<tbody></tbody>");
@@ -120,13 +120,35 @@ function Sort() {
   
 }
 function Show() {
+   const color = {};
+  fetch('http://localhost:8089/sanpham/mau')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(valuee => {
+        color[valuee.maMau] = valuee.tenMau;
+      });
+    })
+    .catch(error => console.error(error));
+
+
+    const Size = {};
+  fetch('http://localhost:8089/sanpham/kc')
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(valuee => {
+        Size[valuee.maKC] = valuee.soKC;
+      });
+    })
+    .catch(error => console.error(error));
+
   fetch('http://localhost:8089/sanpham')
     .then(res => res.json())
     .then(data => {
-     // console.log(data);
+      console.log(data);
       data.forEach(user => {
         const arr = user.hinhanh.split("|");
-        // console.log(arr);
+        console.log(user.maSP);
+        for (let i = 0; i < user.productDetails.length; i++){
         if ($("#productTable tbody").length == 0) {
           $("#productTable").append("<tbody></tbody>");
         }
@@ -138,20 +160,21 @@ function Show() {
           "</td>" +
           `<td>${user.maSP}</td>` +
           `<td>${user.tenSP}</td>` +
-          `<td>${user.size.soKC}</td>` +
-          `<td>${user.mau.tenMau}</td>` +
+           `<td>${Size[user.productDetails[i].maKC]}</td>` +
+           `<td>${color[user.productDetails[i].maMau]}</td>` +
           `<td>${user.nh.tenNH}</td>` +
           `<td>${user.mh.tenMH}</td>` +
           `<td>${user.km.mucKM * 100}%</td>` +
-          `<td>${user.soluong}</td>` +
-          `<td>${user.giaban}</td>` +
-          `<td><img src="./img/${arr[0]}" width="100" height="100" ></td>` +
+           `<td>${user.productDetails[i].soLuong}</td>` +
+          `<td>${user.giaban + user.productDetails[i].gia }</td>` +
+          `<td><img src="./img/${user.productDetails[i].hinhAnh}" width="100" height="100" ></td>` +
           "<td>" +
-          `<button type='button' onclick='deleteSanPham(\"${user.maSP}\");' class='btn btn-default'>` +
+          `<button type='button' onclick="deleteSanPham('${user.maSP}','${user.productDetails[i].maMau}','${user.productDetails[i].maKC}')" class='btn btn-default'>` +
           "<span class='glyphicon glyphicon-remove' />" +
           "</button>" +
           "</td>" +
           "</tr>");
+      }
       });
     })
     .catch(error => console.log(error));
@@ -159,4 +182,4 @@ function Show() {
 
 
 Show();
-Sort();
+//Sort();

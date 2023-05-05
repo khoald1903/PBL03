@@ -6,6 +6,7 @@
     <title> Admin Page </title>
     <link rel="stylesheet" href="/Admin Page/css/app.css">
     <link rel="stylesheet" href="/Admin Page/css/main.css">
+    <link rel="stylesheet" href="/Admin Page/css/Dashboard.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
@@ -57,7 +58,7 @@
             </li>
             <li>
                 <a href="QLKH.html">
-                    <i class='bx bxs-user-circle'></i>
+                    <i class='bx bxs-user-doughnut'></i>
                     <span class="links_name">Quản lí khách hàng </span>
                 </a>
             </li>
@@ -67,12 +68,24 @@
                     <span class="links_name">Quản lí nhân viên</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">Thống kê</span>
+            <li id="QLNCC">
+                <a href="/Admin Page/QLNCC.html">
+                    <i class="fa-solid fa-truck-fast" style="color: #ffffff;"></i>
+                    <span class="links_name">Quản lí nhà cung cấp</span>
                 </a>
             </li>
+            <li id="QLKho">
+                <a href="/Admin Page/QLKho.html">
+                    <i class="fa-solid fa-warehouse" style="color: #ffffff;"></i>
+                    <span class="links_name">Quản lí kho hàng</span>
+                </a>
+            </li>
+            <!-- <li>
+                <a href="#">
+                    <i class='bx bx-doughnut-chart-alt-2'></i>
+                    <span class="links_name">Thống kê</span>
+                </a>
+            </li> -->
         </ul>
     </div>
 
@@ -97,112 +110,68 @@
                 <div class="overview-boxes">
                     <div class="box">
                         <div class="right-side">
-                            <div class="box-topic">Total Order</div>
+                            <div class="box-topic">Đơn hàng</div>
                             <div class="number">40,876</div>
                             <div class="indicator">
                                 <i class='bx bx-up-arrow-alt'></i>
                                 <span class="text">Up from yesterday</span>
                             </div>
                         </div>
-                        <i class='bx bx-cart-alt cart'></i>
+                        <i class="fa-solid fa-cart-plus icon_dashboard icon_dashboard-order"></i>
                     </div>
                     <div class="box">
                         <div class="right-side">
-                            <div class="box-topic">Total Sales</div>
-                            <div class="number">38,876</div>
+                            <div class="box-topic">Doanh thu</div>
+                            <div class="number">$38,876</div>
                             <div class="indicator">
                                 <i class='bx bx-up-arrow-alt'></i>
                                 <span class="text">Up from yesterday</span>
                             </div>
                         </div>
-                        <i class='bx bxs-cart-add cart two'></i>
+                        <i class="fa-solid fa-hand-holding-dollar icon_dashboard icon_dashboard-revenue"></i>
                     </div>
                     <div class="box">
                         <div class="right-side">
-                            <div class="box-topic">Total Profit</div>
+                            <div class="box-topic">Lợi nhuận</div>
                             <div class="number">$12,876</div>
                             <div class="indicator">
                                 <i class='bx bx-up-arrow-alt'></i>
                                 <span class="text">Up from yesterday</span>
                             </div>
                         </div>
-                        <i class='bx bx-cart cart three'></i>
+                        <i class="fa-solid fa-money-bill-transfer icon_dashboard icon_dashboard-profit"></i>
                     </div>
                     <div class="box">
                         <div class="right-side">
-                            <div class="box-topic">Total Return</div>
+                            <div class="box-topic">Khách hàng</div>
                             <div class="number">11,086</div>
                             <div class="indicator">
                                 <i class='bx bx-down-arrow-alt down'></i>
                                 <span class="text">Down From Today</span>
                             </div>
                         </div>
-                        <i class='bx bxs-cart-download cart four'></i>
+                        <i class="fa-solid fa-user icon_dashboard icon_dashboard-customer"></i>
                     </div>
                 </div>
 
-                <div class="sales-boxes">
-                    <div class="top-sales box">
-                        <div class="title">Top Seling Product</div>
-                        <ul class="top-sales-details">
-                            <li>
-                                <a href="#">
-                                    <!--<img src="images/sunglasses.jpg" alt="">-->
-                                    <span class="product">Vuitton Sunglasses</span>
-                                </a>
-                                <span class="price">$1107</span>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="images/jeans.jpg" alt="">-->
-                                    <span class="product">Hourglass Jeans </span>
-                                </a>
-                                <span class="price">$1567</span>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!-- <img src="images/nike.jpg" alt="">-->
-                                    <span class="product">Nike Sport Shoe</span>
-                                </a>
-                                <span class="price">$1234</span>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="images/scarves.jpg" alt="">-->
-                                    <span class="product">Hermes Silk Scarves.</span>
-                                </a>
-                                <span class="price">$2312</span>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="images/blueBag.jpg" alt="">-->
-                                    <span class="product">Succi Ladies Bag</span>
-                                </a>
-                                <span class="price">$1456</span>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="images/bag.jpg" alt="">-->
-                                    <span class="product">Gucci Womens's Bags</span>
-                                </a>
-                                <span class="price">$2345</span>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="images/addidas.jpg" alt="">-->
-                                    <span class="product">Addidas Running Shoe</span>
-                                </a>
-                                <span class="price">$2345</span>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <!--<img src="images/shirt.jpg" alt="">-->
-                                    <span class="product">Bilack Wear's Shirt</span>
-                                </a>
-                                <span class="price">$1245</span>
-                            </li>
-                        </ul>
+                
+                <div class="chart">
+                    <div class="linechart">
+                        <div class="title title_linechart">Doanh thu</div>
+                        <canvas id="canvas_line" data-color-datalabels="#ffffff"></canvas>
+                    </div>
+                    <div class="chart-right">
+                        <div class="doughnutchart">
+                            <div class="title">Nhãn hiệu bán ra</div>
+                            <canvas id="canvas_doughnut"></canvas>
+                        </div>
+                        <div class="barchart">
+                            <div class="title">Sản phẩm bán chạy</div>
+                            <canvas id="canvas_bar"></canvas>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -210,9 +179,10 @@
     </section>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
     <script src="/Admin Page/js/app.js"></script>
     <script src="/Admin_Page.js"></script>
+    <script src="/Admin Page/js/Dashboard.js"></script>
 
 </body>
 

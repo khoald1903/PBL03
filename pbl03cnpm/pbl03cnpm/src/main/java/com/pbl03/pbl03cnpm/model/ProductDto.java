@@ -9,8 +9,9 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "sanpham")
 public class ProductDto {
-	@EmbeddedId
-	private ProductID productID;
+	@Id
+	@Column(name = "MaSP")
+	private String maSP;
 	@Column(name = "TenSP")
 	private String tenSP;
 	@Column(name = "MaNH")
@@ -19,8 +20,6 @@ public class ProductDto {
 	private String maMH;
 	@Column(name = "MaKM")
 	private String maKM;
-	@Column(name = "SoLuong")
-	private String soLuong;
 	@Column(name = "GiaBan")
 	private Integer giaBan;
 	@Column(name = "HinhAnh")
@@ -30,12 +29,6 @@ public class ProductDto {
 	@Column(name = "TrangThai")
 	private Boolean trangthai;
 	public ProductDto() {
-	}
-	public ProductID getProductID() {
-		return productID;
-	}
-	public void setProductID(ProductID productID) {
-		this.productID = productID;
 	}
 	public String getTenSP() {
 		return tenSP;
@@ -61,14 +54,14 @@ public class ProductDto {
 	public void setMaKM(String maKM) {
 		this.maKM = maKM;
 	}
-	public String getSoLuong() {
-		return soLuong;
-	}
-	public void setSoLuong(String soLuong) {
-		this.soLuong = soLuong;
-	}
 	public Integer getGiaBan() {
 		return giaBan;
+	}
+	public String getMaSP() {
+		return maSP;
+	}
+	public void setMaSP(String maSP) {
+		this.maSP = maSP;
 	}
 	public void setGiaBan(Integer giaBan) {
 		this.giaBan = giaBan;
@@ -91,26 +84,20 @@ public class ProductDto {
 	public void setTrangthai(Boolean trangthai) {
 		this.trangthai = trangthai;
 	}
-	@Override
-	public String toString() {
-		return "ProductDto [productID=" + productID + ", tenSP=" + tenSP + ", maNH=" + maNH + ", maMH=" + maMH
-				+ ", maKM=" + maKM + ", soLuong=" + soLuong + ", giaBan=" + giaBan + ", hinhAnh=" + hinhAnh + ", moTa="
-				+ moTa + ", trangthai=" + trangthai + "]";
-	}
-	public ProductDto(ProductID productID, String tenSP, String maNH, String maMH, String maKM, String soLuong,
-			Integer giaBan, String hinhAnh, String moTa, Boolean trangthai) {
+	public ProductDto(String maSP, String tenSP, String maNH, String maMH, String maKM, Integer giaBan,
+			String hinhAnh, String moTa, Boolean trangthai) {
 		super();
-		this.productID = productID;
+		this.maSP = maSP;
 		this.tenSP = tenSP;
 		this.maNH = maNH;
 		this.maMH = maMH;
 		this.maKM = maKM;
-		this.soLuong = soLuong;
 		this.giaBan = giaBan;
 		this.hinhAnh = hinhAnh;
 		this.moTa = moTa;
 		this.trangthai = trangthai;
 	}
+
 	
 	
 }

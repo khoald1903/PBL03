@@ -17,7 +17,6 @@
 
     <!-- Button, search, dropdown -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <script type="text/javascript" src="/Admin Page/js/app.js"></script>
 
 </head>
 
@@ -28,14 +27,14 @@
             <span class="logo_name">NKH SHOP</span>
         </div>
         <ul class="nav-links">
-            <li id="Dashboard">
+           <li id="Dashboard">
                 <a href="/Admin Page/Dashboard.html" >
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li id="QLSP">
-                <a href="/Admin Page/QLSP.html" class="active">
+                <a href="/Admin Page/QLSP.html" class="active_sidebar">
                     <i class='bx bx-box'></i>
                     <span class="links_name">Quản lí sản phẩm</span>
                 </a>
@@ -64,10 +63,16 @@
                     <span class="links_name">Quản lí nhân viên</span>
                 </a>
             </li>
-            <li id="ThongKe">
-                <a href="#">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">Thống kê</span>
+            <li id="QLNCC">
+                <a href="/Admin Page/QLNCC.html" >
+                    <i class="fa-solid fa-truck-fast" style="color: #ffffff;"></i>
+                    <span class="links_name">Quản lí nhà cung cấp</span>
+                </a>
+            </li>
+            <li id="QLKho">
+                <a href="/Admin Page/QLKho.html" >
+                    <i class="fa-solid fa-warehouse" style="color: #ffffff;"></i>
+                    <span class="links_name">Quản lí kho hàng</span>
                 </a>
             </li>
         </ul>
@@ -118,31 +123,6 @@
                     </ul>
                     <ul class="home-content--infor-list">
                         <li class="home-content--infor-item">
-                            <label for="">Kích cỡ:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <div class="select">
-                                <select id="size-select">
-
-                                </select>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Màu:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <div class="select">
-                                <select id="color-select">
-
-                                </select>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
                             <label for="">Nhãn hiệu:</label>
                         </li>
                         <li class="home-content--infor-item home-content--infor-item--text">
@@ -166,6 +146,9 @@
                         </li>
                     </ul>
 
+                    
+                </div>
+                <div class="home-content--infor-right">
                     <ul class="home-content--infor-list">
                         <li class="home-content--infor-item">
                             <label for="">Mức khuyến mãi:</label>
@@ -178,8 +161,6 @@
                             </div>
                         </li>
                     </ul>
-                </div>
-                <div class="home-content--infor-right">
                     <ul class="home-content--infor-list">
                         <li class="home-content--infor-item">
                             <label for="">Hình ảnh:</label>
@@ -197,20 +178,12 @@
                             <input type="text" id="input_mota" class="input_text">
                         </li>
                     </ul>
-                    <ul class="home-content--infor-list">
-                        <li class="home-content--infor-item">
-                            <label for="">Số lượng:</label>
-                        </li>
-                        <li class="home-content--infor-item home-content--infor-item--text">
-                            <input type="text" id="soluong" class="input_text">
-                        </li>
-                    </ul>
                 </div>
             </div>
             <div class="home-content--button">
-                <button id="Add" class="snip1582">
-                    <i class="fa-solid fa-circle-plus"></i>
-                    Thêm sản phẩm
+                <button id="continue" class="snip1582" >       <!-- //Thay đổi id cái ni -->
+                   <i class="fa-solid fa-arrow-right" style="color: #ffffff;"></i>
+                    Tiếp tục
                 </button>
             </div>
         </div>

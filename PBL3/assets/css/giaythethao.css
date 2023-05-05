@@ -268,76 +268,125 @@ ul {
     font-size: 1.6rem !important;
 }
 
-                        /* Copy mạng */
+                    /*Lọc theo giá: Copy mạng */
 
-        .range-slide {
-            position: relative;
-            margin: 40px;
-            height: 4px;
-            width: 240px;
-        }
+                .wrapper {
+                    position: relative;
+                    width: 300px;
+                    /* background-color: #ffffff; */
+                    padding: 0px 40px 20px 40px;
+                    border-radius: 10px;
+                }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            height: 4px;
-            background: #ccc;
-            left: 9px;
-            right: 9px;
-        }
+                .container {
+                    position: relative;
+                    width: 100%;
+                    height: 70px;
+                    /* margin-top: 30px; */
+                }
 
-        .line {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: 4px;
-            background-color: red;
-        }
+                input[type="range"] {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    width: 100%;
+                    outline: none;
+                    position: absolute;
+                    margin: auto;
+                    top: 0;
+                    bottom: 0;
+                    background-color: transparent;
+                    pointer-events: none;
+                }
 
-        .thumb {
-            position: absolute;
-            z-index: 2;
-            text-align: left;
-            border: 1px solid red;
-            background-color: #fbef04;
-            border-radius: 50%;
-            outline: none;
-            top: -7px;
-            height: 18px;
-            width: 18px;
-            margin-left: -9px;
-        }
+                .slider-track {
+                    width: 100%;
+                    height: 5px;
+                    position: absolute;
+                    margin: auto;
+                    top: -3px;
+                    bottom: 0;
+                    border-radius: 5px;
 
-        .inputxyz {
-            -webkit-appearance: none;
-            appearance: none;
-            position: absolute;
-            pointer-events: none;
-            z-index: 3;
-            height: 3px;
-            top: 0;
-            width: 100%;
-            opacity: 0;
-            margin: 0;
-        }
+                }
 
-        input::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            pointer-events: all;
-            border-radius: 50%;
-            cursor: pointer;
-            width: 18px;
-            height: 18px;
-        }
+                input[type="range"]::-webkit-slider-runnable-track {
+                    -webkit-appearance: none;
+                    height: 5px;
+                }
 
-        .display {
-            margin: 40px;
-            width: 240px;
-            display: flex;
-            justify-content: space-between;
-        }
+                input[type="range"]::-moz-range-track {
+                    -moz-appearance: none;
+                    height: 5px;
+                }
+
+                input[type="range"]::-ms-track {
+                    appearance: none;
+                    height: 5px;
+                }
+
+                input[type="range"]::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    height: 1.7em;
+                    width: 1.7em;
+                    background-color: #fe3232;
+                    cursor: pointer;
+                    margin-top: -9px;
+                    pointer-events: auto;
+                    border-radius: 50%;
+                }
+
+                input[type="range"]::-moz-range-thumb {
+                    -webkit-appearance: none;
+                    height: 1.7em;
+                    width: 1.7em;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    background-color: #fe3232;
+                    pointer-events: auto;
+                }
+
+                input[type="range"]::-ms-thumb {
+                    appearance: none;
+                    height: 1.7em;
+                    width: 1.7em;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    background-color: #fe3232;
+                    pointer-events: auto;
+                }
+
+                input[type="range"]:active::-webkit-slider-thumb {
+                    background-color: #eaff00;
+                    border: 3px solid #3264fe;
+                }
+
+                .values {
+                    background-color: #fe3232;
+                    width: 90%;
+                    position: relative;
+                    margin: auto;
+                    padding: 10px 0;
+                    border-radius: 5px;
+                    text-align: center;
+                    font-weight: 500;
+                    font-size: 16px;
+                    color: #ffffff;
+                }
+
+                .values:before {
+                    content: "";
+                    position: absolute;
+                    height: 0;
+                    width: 0;
+                    border-bottom: 15px solid #fe3232;
+                    border-left: 15px solid transparent;
+                    border-right: 15px solid transparent;
+                    margin: auto;
+                    top: -14px;
+                    left: 0;
+                    right: 0;
+                }
 
                      /* Copy mạng */
 

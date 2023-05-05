@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Quản lý sản phẩm </title>
-    <link rel="stylesheet" href="/Admin Page/css/QLSP.css">
+    <title> Quản lý nhà cung cấp </title>
+    <link rel="stylesheet" href="/Admin Page/css/QLNCC.css">
     <link rel="stylesheet" href="/Admin Page/css/base.css">
     <link rel="stylesheet" href="/Admin Page/css/main.css">
 
@@ -45,14 +45,14 @@
             <span class="logo_name">NKH SHOP</span>
         </div>
         <ul class="nav-links">
-<li id="Dashboard">
+            <li id="Dashboard">
                 <a href="/Admin Page/Dashboard.html" >
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
             <li id="QLSP">
-                <a href="/Admin Page/QLSP.html" class="active">
+                <a href="/Admin Page/QLSP.html" >
                     <i class='bx bx-box'></i>
                     <span class="links_name">Quản lí sản phẩm</span>
                 </a>
@@ -82,7 +82,7 @@
                 </a>
             </li>
             <li id="QLNCC">
-                <a href="/Admin Page/QLNCC.html" >
+                <a href="/Admin Page/QLNCC.html" class="active">
                     <i class="fa-solid fa-truck-fast" style="color: #ffffff;"></i>
                     <span class="links_name">Quản lí nhà cung cấp</span>
                 </a>
@@ -92,7 +92,8 @@
                     <i class="fa-solid fa-warehouse" style="color: #ffffff;"></i>
                     <span class="links_name">Quản lí kho hàng</span>
                 </a>
-            </li>        
+            </li>
+
         </ul>
     </div>
 
@@ -100,7 +101,7 @@
         <nav>
             <div class="sidebar-button">
                 <i class='bx bx-menu sidebarBtn'></i>
-                <span class="dashboard">Quản lý sản phẩm</span>
+                <span class="dashboard">Quản lý nhà cung cấp</span>
             </div>
             <a id="LOGOUT" href="" class="sidebar-button anchor_logout">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -119,9 +120,9 @@
                         </div>
                     </li>
                     <li class="home__content-tool-item home__content-tool-item--button">
-                        <button class="snip1582" onclick="returnQLSP_Add()">
+                        <button class="snip1582" onclick="returnQLNCC_Add()">
                             <i class="fa-solid fa-circle-plus"></i>
-                            Thêm sản phẩm
+                            Thêm nhà cung cấp
                         </button>
 
                     </li>
@@ -138,21 +139,18 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <table id="productTable" class="table table-bordered 
+                        <table id="providerTable" class="table table-bordered 
                                         table-condensed table-striped">
                             <thead>
                                 <tr>
                                     <th>Sửa</th>
-                                    <th>Mã sản phẩm</th>
-                                    <th>Tên sản phẩm</th>
-                                    <th>Kích cỡ</th>
-                                    <th>Màu</th>
-                                    <th>Nhãn hiệu</th>
-                                    <th>Loại mặt hàng</th>
-                                    <th>Khuyến mãi</th>
-                                    <th>Số lượng</th>
-                                    <th>Giá bán</th>
-                                    <th>Hình ảnh</th>
+                                    <th>Mã nhà cung cấp</th>
+                                    <th>Tên nhà cung cấp</th>
+                                    <th>Người đại diện</th>
+                                    <th>Lĩnh vực kinh doanh</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Email</th>
                                     <th>Xóa</th>
                                 </tr>
                             </thead>
@@ -165,14 +163,14 @@
         </div>
     </section>
     <script>
-        function deleteSanPham(id,maMau,maKC) {
-            console.log(id,maMau,maKC);
-            fetch(`http://localhost:8089/sanpham/delete/${id}&${maMau}&${maKC}`, {
-                method: 'PUT',
+        function deleteNhaCungCap(id) {
+            console.log(id);
+            fetch(`http://localhost:8089/sanpham/${id}`, {  //Thay đổi localhost
+                method: 'DELETE',
             })
                 .then(res => {
                     if (res.ok) {
-                        window.location.href = "QLSP.html";
+                        window.location.href = "QLNCC.html";
                     } else {
                         throw new Error('Xóa thất bại');
                     }
@@ -180,7 +178,7 @@
                 .catch(error => console.log(error));
         }
     </script>
-    <script type="text/javascript" src="/Admin Page/js/QLSP.js"></script>
+    <script type="text/javascript" src="/Admin Page/js/QLNCC.js"></script>
     <script src="/Admin Page/js/app.js"></script>
     <script src="/Admin_Page.js"></script>
 </body>

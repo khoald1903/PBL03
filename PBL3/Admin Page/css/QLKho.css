@@ -489,77 +489,192 @@ nav .profile-details i {
 }
 
 /* Mới */
-
 /* Đăng xuất */
-.anchor_logout{
+.anchor_logout {
     color: black;
     text-decoration: none;
 }
-/* THÔNG TIN CHUNG */
-.home-content--infor{
-    border: 0.2px dash rgb(209, 193, 193);
-    background-color: rgb(230, 223, 223);
-    padding: 20px 20px;
-    margin-left: 50px;
-    width: 700px;
+
+.home__content-tool {
+    margin: 30px 50px;
+}
+
+.home__content-tool-list {
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    position: relative;
+    justify-content: flex-start;
 }
-.home-content--infor-list{
-    padding: 15px 30px;
-}
-.home-content--infor-item{
+
+.home__content-tool-item {
+    margin: 0 15px;
     display: inline-block;
 }
-.home-content--infor-item label{
-    color: blue;
-    font-size: 1.8rem;
+
+/* Table */
+table {
+    border-collapse: collapse;
+    margin-left: 20px;
+    width: 100%;
 }
-.lb_thongtinchung{
-    color: black !important;
-    font-size: 2.4rem !important;
-    font-weight: 600;
+
+table,
+th,
+td {
+    border: 1px solid black;
 }
-.home-content--infor-item  input{
-    width: 400px;
-    height: 30px;
-    
-}
-.home-content--infor-item--text {
+
+tr {
+    height: 50px;
     word-wrap: break-word;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+tr th {
+    text-align: center;
+}
+
+.th-tendai {
+    min-width: 150px;
+}
+
+.td__a-icon {
+    text-decoration: none;
+    color: red;
+    padding-left: 10px;
+}
+
+/* Sort */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #41484a;
+    background-image: none;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 15em;
+    height: 40px;
+    line-height: 2;
+    background: #fff;
+    overflow: hidden;
+    border-radius: .25em;
+
+}
+
+select {
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px !important;
+}
+
+/* thiết kế dấu mũi tên */
+.select::after {
+    content: '\25BC';
     position: absolute;
-    right: 30px;
-}
-.home-content--infor-item--img{
-    padding-right: 20px;
-    padding-left: 130px;
-}
-
-.btn__chontep,.btn__luuthaydoi {
-    border-radius: 5px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    background-color: #0A2558;
-    border: none;
+    top: 7px;
+    right: 0;
+    padding: 0 1em;
+    background: #41484a;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
     color: white;
-    padding: 5px 15px;
-}
-/* Ảnh ở mô tả */
-#input_mota{
-    height: 60px;
-}
-.home-content--infor-list--mota{
-    margin-bottom: 30px;
 }
 
-/* Nút Lưu thay đỏi */
-.home-content--button{
-    margin: 30px 350px;
+/* Transition */
+.select:hover::after {
+    color: Gainsboro;
 }
-                                /* Search */
+
+.select select option {
+    font-size: 16px;
+}
+
+
+/* Button Add */
+@import url(https://fonts.googleapis.com/css?family=BenchNine:700);
+
+.snip1582 {
+    background-color: #41484a;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'BenchNine', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1em;
+    margin: 0 20px;
+    outline: none;
+    padding: 15px 40px 10px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.snip1582:before,
+.snip1582:after {
+    border-color: transparent;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    border-style: solid;
+    border-width: 0;
+    content: "";
+    height: 24px;
+    position: absolute;
+    width: 24px;
+}
+
+.snip1582:before {
+    border-color: #41484a;
+    border-top-width: 2px;
+    left: 0px;
+    top: -5px;
+}
+
+.snip1582:after {
+    border-bottom-width: 2px;
+    border-color: #41484a;
+    bottom: -5px;
+    right: 0px;
+}
+
+.snip1582:hover,
+.snip1582.hover {
+    background-color: #0A2558;
+}
+
+.snip1582:hover:before,
+.snip1582.hover:before,
+.snip1582:hover:after,
+.snip1582.hover:after {
+    height: 100%;
+    width: 100%;
+}
+
+#cbb1 {
+    color: white;
+}
+
+/* Search */
 .box__search {
-   /* // margin: 100px auto; */
+    /* // margin: 100px auto; */
     width: 300px;
     height: 40px;
 }
