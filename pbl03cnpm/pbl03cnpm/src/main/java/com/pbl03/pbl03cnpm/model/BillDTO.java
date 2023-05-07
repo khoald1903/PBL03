@@ -5,12 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "hoadon")
-public class Bill {
+public class BillDTO {
 	@Id
 	@Column(name = "MaHD")
 	private Integer id;
@@ -45,14 +44,11 @@ public class Bill {
 	
 	@Column(name = "Mota")
 	private String mota;
-	
-	@OneToMany
-	@JoinColumn(name = "MaHD", referencedColumnName = "MaHD")
-	private BillDetail billDetail;
-	
-	
-	public Bill(Integer id, Customer customer, Employee employee, Donvivanchuyen donvivanchuyen, String date,
-			Province province, String address, Integer sumPrice, Boolean status, String mota, BillDetail billDetail) {
+	public BillDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	public BillDTO(Integer id, Customer customer, Employee employee, Donvivanchuyen donvivanchuyen, String date,
+			Province province, String address, Integer sumPrice, Boolean status, String mota) {
 		super();
 		this.id = id;
 		this.customer = customer;
@@ -64,110 +60,72 @@ public class Bill {
 		this.sumPrice = sumPrice;
 		this.status = status;
 		this.mota = mota;
-		this.billDetail = billDetail;
 	}
-
-	public BillDetail getBillDetail() {
-		return billDetail;
-	}
-
-	public void setBillDetail(BillDetail billDetail) {
-		this.billDetail = billDetail;
-	}
-
-	public Bill() {
-	}
-
-	public String getMota() {
-		return mota;
-	}
-
-
-
-	public void setMota(String mota) {
-		this.mota = mota;
-	}
-
-
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public Customer getCustomer() {
 		return customer;
 	}
-
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-
 	public Employee getEmployee() {
 		return employee;
 	}
-
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-
 	public Donvivanchuyen getDonvivanchuyen() {
 		return donvivanchuyen;
 	}
-
 	public void setDonvivanchuyen(Donvivanchuyen donvivanchuyen) {
 		this.donvivanchuyen = donvivanchuyen;
 	}
-
 	public String getDate() {
 		return date;
 	}
-
 	public void setDate(String date) {
 		this.date = date;
 	}
-
 	public Province getProvince() {
 		return province;
 	}
-
 	public void setProvince(Province province) {
 		this.province = province;
 	}
-
 	public String getAddress() {
 		return address;
 	}
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 	public Integer getSumPrice() {
 		return sumPrice;
 	}
-
 	public void setSumPrice(Integer sumPrice) {
 		this.sumPrice = sumPrice;
 	}
-
 	public Boolean getStatus() {
 		return status;
 	}
-
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-
+	public String getMota() {
+		return mota;
+	}
+	public void setMota(String mota) {
+		this.mota = mota;
+	}
 	@Override
 	public String toString() {
-		return "Bill [id=" + id + ", customer=" + customer + ", employee=" + employee + ", donvivanchuyen="
+		return "BillDTO [id=" + id + ", customer=" + customer + ", employee=" + employee + ", donvivanchuyen="
 				+ donvivanchuyen + ", date=" + date + ", province=" + province + ", address=" + address + ", sumPrice="
-				+ sumPrice + ", status=" + status + "]";
+				+ sumPrice + ", status=" + status + ", mota=" + mota + "]";
 	}
-	
 	
 }

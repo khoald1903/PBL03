@@ -250,9 +250,10 @@ ul {
 }
 
 .main__products-item--name-label {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     padding: 10px;
     text-align: center;
+    font-weight: 500;
 }
 
 .main__products-item--price {
@@ -260,7 +261,7 @@ ul {
 }
 
 .main__products-item--price>label {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 600;
 }
 

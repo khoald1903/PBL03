@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pbl03.pbl03cnpm.model.Bill;
 import com.pbl03.pbl03cnpm.model.ResponseObject;
+import com.pbl03.pbl03cnpm.repositories.BillDTORepo;
+import com.pbl03.pbl03cnpm.repositories.BillDetailRepo;
 import com.pbl03.pbl03cnpm.repositories.BillRepo;
 import com.pbl03.pbl03cnpm.repositories.CustomerRepo;
 import com.pbl03.pbl03cnpm.repositories.DonvivanchuyenRepo;
@@ -33,14 +35,17 @@ public class BillController {
 	private ProvinceRepo provinceRepo;
 	@Autowired
 	private BillRepo billRepo;
-	
+	@Autowired
+	private BillDTORepo billDTORepo;
+	@Autowired
+	private BillDetailRepo billDetailRepo;
 	@GetMapping("")
 	List<Bill> getAllBills(){
 		return billRepo.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	ResponseEntity<ResponseObject> getBillById(@PathVariable String id){
+	ResponseEntity<ResponseObject> getBillById(@PathVariable Integer id){
 		boolean exists = billRepo.existsById(id);
 		if(exists) {
 			return ResponseEntity.status(HttpStatus.OK).body(

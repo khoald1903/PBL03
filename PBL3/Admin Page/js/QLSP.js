@@ -146,17 +146,12 @@ function Show() {
     .then(data => {
       console.log(data);
       data.forEach(user => {
-        const arr = user.hinhanh.split("|");
         console.log(user.maSP);
         for (let i = 0; i < user.productDetails.length; i++){
         if ($("#productTable tbody").length == 0) {
           $("#productTable").append("<tbody></tbody>");
         }
         $("#productTable tbody").append("<tr>" +
-          "<td>" +
-          `<button type='button' onclick='window.location.href="QLSP_Update.html?id=${user.maSP}";'class='btn btn-default'>` +
-          "<span class='glyphicon glyphicon-edit' />" +
-          "</button>" +
           "</td>" +
           `<td>${user.maSP}</td>` +
           `<td>${user.tenSP}</td>` +
@@ -171,6 +166,10 @@ function Show() {
           "<td>" +
           `<button type='button' onclick="deleteSanPham('${user.maSP}','${user.productDetails[i].maMau}','${user.productDetails[i].maKC}')" class='btn btn-default'>` +
           "<span class='glyphicon glyphicon-remove' />" +
+          "</button>" +
+          "<td>" +
+          `<button type='button' onclick='window.location.href="QLSP_Update.html?id=${user.maSP}&size=${user.productDetails[i].maKC}&color=${user.productDetails[i].maMau} ";'class='btn btn-default'>` +
+          "<span class='glyphicon glyphicon-edit' />" +
           "</button>" +
           "</td>" +
           "</tr>");

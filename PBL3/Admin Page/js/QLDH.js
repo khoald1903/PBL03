@@ -80,7 +80,7 @@ function Sort() {
     // handle sort
     $("#orderTable tbody").empty();
     const textSearch ='';
-    fetch(`http://localhost:8089/sanpham/list/${select_Sort.value}&${textSearch}`)   //Thay đổi localHost
+    fetch(`http://localhost:8089/donhang/list/${select_Sort.value}&${textSearch}`)   //Thay đổi localHost
   .then(res => res.json())
   .then(data => {
     //console.log(data);
@@ -122,7 +122,7 @@ function Sort() {
   })
 }
 function Show() {
-  fetch('http://localhost:8089/sanpham')  // Thay đổi localHost
+  fetch('http://localhost:8089/donhang')  // Thay đổi localHost
     .then(res => res.json())
     .then(data => {
      // console.log(data);
@@ -156,4 +156,4 @@ function Show() {
     .catch(error => console.log(error));
 }
 Show();
-Sort();
+// Sort();

@@ -46,6 +46,11 @@ public class ProductDetailController {
 		return productDetailRepo.findByMaSP(id);
 	}
 	
+	@GetMapping("get/{masp}&{makc}&{mamau}")
+	ProductDetail getAlls(@PathVariable String masp, @PathVariable String makc, @PathVariable String mamau) {
+		return productDetailRepo.findByMaSPAndMaKCAndMaMau(masp, makc, mamau).get();
+	}
+	
 	@GetMapping("/getAllKC/{id}")
 	List<Size> getAllKC(@PathVariable String id){
 		List<Size> kc = new ArrayList<>();
@@ -109,6 +114,8 @@ public class ProductDetailController {
 					return productDetailRepo.save(product);
 				}).orElseGet(() -> {
 					newProduct.setMaSP(masp);
+					newProduct.setMaMau(mamau);
+					newProduct.setMaKC(makc);
 					return productDetailRepo.save(newProduct);
 				});
 		return ResponseEntity.status(HttpStatus.OK).body(

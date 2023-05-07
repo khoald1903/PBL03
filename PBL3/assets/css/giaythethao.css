@@ -199,18 +199,22 @@ ul {
     font-size: 1.5rem;
     font-weight: 600;
 }
+.main__products-item--name{
+    text-align: center;
+    min-height: 60px;
+}
 .main__products-item--name-label{
     font-size: 1.5rem;
     padding: 10px;
-    text-align: center;
+    
     color: black;
-    font-weight: 200;
+    font-weight: 500;
 }
 .main__products-item--price{
     text-align: center;
 }
 .main__products-item--price > label {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 600;
 }
 .main__products-item--label-giakhuyenmai{

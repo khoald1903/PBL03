@@ -42,12 +42,10 @@ $(".hover").mouseleave(
   }
 );
 
-
 const urlParams = new URLSearchParams(window.location.search);
 const ID = urlParams.get('id');
 
-let Pass;
-  const url = `http://localhost:8089/taikhoan/customer/get/${ID}`;   //Thay đổi 
+const url = `http://localhost:8089/nhacungcap/get/${ID}`;   //Thay đổi 
 
   fetch(url)
     .then(response => {
@@ -57,14 +55,14 @@ let Pass;
       return response.json();
     })
     .then(data => {
-      console.log(data);
+      // console.log(data);
       document.querySelector("#ID").value = data.maNCC;
       document.querySelector("#Name").value = data.tenNCC;
       document.querySelector("#RepreName").value = data.nguoiDD;
       document.querySelector("#BusiSector").value = data.linhvucKD;
       document.querySelector("#Address").value = data.diachi;
-      document.querySelector("#Phone").value = data.customer.sdt;
-      document.querySelector("#Email").value = data.customer.email;
+      document.querySelector("#Phone").value = data.sdt;
+      document.querySelector("#Email").value = data.email;
     })
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
@@ -80,7 +78,7 @@ function Update(id) {
       sdt: document.querySelector("#Phone").value,
       email: document.querySelector("#Email").value,
     };
-    fetch(`http://localhost:8089/taikhoan/customer/update/${id}`, {  //Thay đổi
+    fetch(`http://localhost:8089/nhacungcap/update/${id}`, {  //Thay đổi
         method: 'PUT',  
         headers: {
             'Content-Type': 'application/json'

@@ -500,11 +500,15 @@ nav .profile-details i {
 .home-navbar{
     margin-bottom: 30px;
 } */
+.home-section div nav {
+    margin-bottom: 30px !important;
+}
 .home-content {
     background-color: #fff;
     border: 0.4px solid rgb(246, 246, 233);
-    margin: 30px 30px;
-    width: 1200px;
+    margin: 0 auto;
+    width: 800px;
+    
 }
 
 .home-content--title {
@@ -520,7 +524,7 @@ nav .profile-details i {
 
 .home-content--infor {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding-top: 20px;
     /* padding: 20px 20px; */
     /* margin-left: 50px; */
@@ -542,9 +546,9 @@ nav .profile-details i {
 }
 
 .home-content--infor-item input {
-    width: 500px;
+    width: 700px;
     height: 30px;
-
+    /* padding-left: 15px; */
 }
 
 .home-content--infor-item--text {
@@ -579,7 +583,7 @@ nav .profile-details i {
 
 /* Nút  Thêm sản phẩm */
 .home-content--button {
-    margin: 30px 450px;
+    margin: 30px 320px;
 }
 
 @import url(https://fonts.googleapis.com/css?family=BenchNine:700);
@@ -600,6 +604,7 @@ nav .profile-details i {
     text-transform: uppercase;
     font-weight: 700;
     border-radius: 5px;
+    width: 170px;
 }
 
 .snip1582:before,
@@ -652,7 +657,7 @@ table {
     border-collapse: collapse;
 }
 
-table,
+/* table,
 th,
 td {
     border: 1px solid black;
@@ -666,15 +671,18 @@ tr {
 th,
 td {
     text-align: center;
-    min-width: 125px;
+    max-width: 30px;
 }
 
-.th-tendai {
-    min-width: 150px;
-}
 
 .td__a-icon {
     text-decoration: none;
     color: red;
     padding-left: 10px;
+} */
+.table{
+    max-width: 700px !important;
+}
+th,td {
+    text-align: center !important;
 }

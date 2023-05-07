@@ -24,7 +24,7 @@ function AddProvider() {
     body: JSON.stringify(provider)
   };
 
-  fetch('http://localhost:8089/sanpham/create', options)  //Thay đổi localhost
+  fetch('http://localhost:8089/nhacungcap/create', options)  //Thay đổi localhost
     .then(response => {
       console.log(response);
       // Handle response

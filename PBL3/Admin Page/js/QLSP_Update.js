@@ -1,88 +1,18 @@
-
-// Sort
-$(".custom-select").each(function () {
-  var classes = $(this).attr("class"),
-    id = $(this).attr("id"),
-    name = $(this).attr("name");
-  var template = '<div class="' + classes + '">';
-  template += '<span class="custom-select-trigger">' + $(this).attr("placeholder") + '</span>';
-  template += '<div class="custom-options">';
-  $(this).find("option").each(function () {
-    template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '">' + $(this).html() + '</span>';
-  });
-  template += '</div></div>';
-
-  $(this).wrap('<div class="custom-select-wrapper"></div>');
-  $(this).hide();
-  $(this).after(template);
-});
-$(".custom-option:first-of-type").hover(function () {
-  $(this).parents(".custom-options").addClass("option-hover");
-}, function () {
-  $(this).parents(".custom-options").removeClass("option-hover");
-});
-$(".custom-select-trigger").on("click", function () {
-  $('html').one('click', function () {
-    $(".custom-select").removeClass("opened");
-  });
-  $(this).parents(".custom-select").toggleClass("opened");
-  event.stopPropagation();
-});
-$(".custom-option").on("click", function () {
-  $(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
-  $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
-  $(this).addClass("selection");
-  $(this).parents(".custom-select").removeClass("opened");
-  $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
-});
-// Button Add
+// Button Update
 $(".hover").mouseleave(
   function () {
     $(this).removeClass("hover");
   }
 );
-
-var LinkString = "";
 function loadFiles(event) {
   var images = document.getElementById('output-images');
-  for (var i = 0; i < event.target.files.length; i++) {
+  images.innerHTML = '';
     var image = document.createElement('img');
-    image.src = URL.createObjectURL(event.target.files[i]);
-    image.width = 200;
+    image.src = URL.createObjectURL(event.target.files[0]);
+    image.width = 200; 
     images.appendChild(image);
-
-    //console.log(event.target.files[i]);
-    var file = event.target.files[i];
-    LinkString = LinkString + file.name + "|";
-  }
+    document.querySelector('#input-images').name = event.target.files[0].name;
 };
-const select_Size = document.getElementById("size-select");
-fetch("http://localhost:8089/sanpham/kc")
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(valuee => {
-      const option = document.createElement("option");
-      option.value = valuee.maKC;
-      option.textContent = valuee.soKC;
-      select_Size.appendChild(option);
-    });
-  })
-  .catch(error => console.error(error));
-
-
-const select_Color = document.getElementById("color-select");
-fetch("http://localhost:8089/sanpham/mau")
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(valuee => {
-      const option = document.createElement("option");
-      option.value = valuee.maMau;
-      option.textContent = valuee.tenMau;
-      select_Color.appendChild(option);
-    });
-  })
-  .catch(error => console.error(error));
-
 const select_Brand = document.getElementById("brand-select");
 fetch("http://localhost:8089/sanpham/nh")
   .then(response => response.json())
@@ -116,28 +46,67 @@ fetch("http://localhost:8089/sanpham/km")
     data.forEach(valuee => {
       const option = document.createElement("option");
       option.value = valuee.maKM;
-      option.textContent = `${valuee.mucKM * 100}%`;
+      option.textContent = `${valuee.mucKM*100}%`;
       select_Discount.appendChild(option);
     });
   })
   .catch(error => console.error(error));
 
+const urlParams = new URLSearchParams(window.location.search);
+const ID = urlParams.get('id');
+const SIZE = urlParams.get('size');
+const COLOR = urlParams.get('color');
+const url = `http://localhost:8089/sanpham/dto/${ID}`;   
 
-function Update(id) {
-  const product = {
+
+
+fetch(url)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed');
+    }
+    return response.json();
+  })
+  .then(data => {
+     console.log(data);
+    document.querySelector("#MaSP").value = data.maSP;
+    document.querySelector("#TenSP").value = data.tenSP;
+    document.querySelector("#giaban").value = data.giaBan;
+    document.querySelector("#brand-select").value = data.maNH;
+    document.querySelector("#category-select").value = data.maMH;
+    document.querySelector("#discount-select").value = data.maKM;
+    const inputImages = document.getElementById('input-images');
+    inputImages.setAttribute('name', data.hinhAnh); 
+    const images = document.getElementById('output-images');
+    images.innerHTML = '';
+    const image = document.createElement('img');
+    image.src = `./img/${data.hinhAnh}`; 
+    console.log(inputImages.name);
+    image.width = 200;
+    images.appendChild(image);
+
+
+
+    document.querySelector("#input_mota").value = data.moTa;
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+function UpdateProduct(id) {
+   const inputImages = document.getElementById('input-images');
+   console.log(inputImages.name);
+   const product = {
     maSP: document.querySelector("#MaSP").value,
     tenSP: document.querySelector("#TenSP").value,
     giaBan: document.querySelector("#giaban").value,
-    maKC: document.querySelector("#size-select").value,
-    maMau: document.querySelector("#color-select").value,
     maNH: document.querySelector("#brand-select").value,
     maMH: document.querySelector("#category-select").value,
     maKM: document.querySelector("#discount-select").value,
-    soLuong: document.querySelector("#soluong").value,
-    hinhAnh: LinkString,
+    hinhAnh: inputImages.name,
     moTa: document.querySelector("#input_mota").value
   };
-
+  
   fetch(`http://localhost:8089/sanpham/update/${id}`, {
     method: 'PUT',
     headers: {
@@ -148,6 +117,7 @@ function Update(id) {
     .then(res => {
       if (res.ok) {
         console.log('Product updated successfully');
+        window.location.href = `QLSP_UpdateDetail.html?id=${id}&size=${SIZE}&color=${COLOR}`;
       } else {
         throw new Error('Failed to update product');
       }
@@ -156,10 +126,23 @@ function Update(id) {
       console.error(error);
     });
 }
-const urlParams = new URLSearchParams(window.location.search);
-const maSPValue = urlParams.get('id');
 
-const UpdateButton = document.querySelector("#Update");
+const UpdateButton = document.querySelector("#continue");
 UpdateButton.addEventListener("click", function () {
-  Update(maSPValue);
+  UpdateProduct(ID);
 });
+
+// Active
+// $(document).ready(function(){
+//       $('#ul-size li').click(function(){
+//            $('#ul-size li.select-size-active').removeClass('select-size-active');
+//            $(this).UpdateClass('select-size-active');
+//        });
+// });
+
+// $(document).ready(function(){
+//       $('#ul-color li').click(function(){
+//            $('#ul-color li.select-color-active').removeClass('select-color-active');
+//            $(this).UpdateClass('select-color-active');
+//        });
+// });

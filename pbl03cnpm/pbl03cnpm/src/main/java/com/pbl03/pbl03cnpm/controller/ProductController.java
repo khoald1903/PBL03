@@ -94,7 +94,14 @@ public class ProductController {
 		}
 		return temp;
 	}
-	
+	@GetMapping("/dto")
+	List<ProductDto> getProductDto(){
+		return productDtoRepo.findAll();
+	}
+	@GetMapping("/dto/{id}")
+	ProductDto getProductDtoById(@PathVariable String id){
+		return productDtoRepo.findById(id).get();
+	}
 	@GetMapping("/getProduct/{masp}")
 	ResponseEntity<ResponseObject> getProduct(@PathVariable String masp){
 		Optional<Product> product = productRepo.findById(masp);
@@ -132,7 +139,6 @@ public class ProductController {
 					product.setGiaBan(newProduct.getGiaBan());
 					product.setHinhAnh(newProduct.getHinhAnh());
 					product.setMoTa(newProduct.getMoTa());
-					product.setTrangthai(newProduct.getTrangthai());
 					return productDtoRepo.save(product);
 				}).orElseGet(() -> {
 					newProduct.setMaSP(masp);

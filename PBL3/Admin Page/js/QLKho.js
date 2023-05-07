@@ -58,8 +58,8 @@ const select_Sort = document.getElementById("Sort-select");
     { id: 1, name: "Mặc định" },
     { id: 2, name: "Tên khu vực" },
     { id: 3, name: "Nhãn hiệu" },
-    { id: 4, name: "Số lượng" },
-    { id: 5, name: "Tình trạng" }
+    { id: 4, name: "Tình trạng" },
+    { id: 5, name: "Số lượng" },
   ];
 
   SortArr.forEach(valuee => {
@@ -78,7 +78,7 @@ function Sort() {
     // handle sort
     $("#wareHouseTable tbody").empty();
     const textSearch ='';
-    fetch(`http://localhost:8089/sanpham/list/${select_Sort.value}&${textSearch}`)  //Thay đổi localhost
+    fetch(`http://localhost:8089/khuvuc/list/${select_Sort.value}&${textSearch}`)  //Thay đổi localhost
   .then(res => res.json())
   .then(data => {
     //console.log(data);
@@ -92,6 +92,7 @@ function Sort() {
           `<td>${warehouse.tenKV}</td>` +
           `<td>${warehouse.nh.tenNH}</td>` +
           `<td>${warehouse.tinhtrang}</td>` +
+          `<td>${warehouse.nh.soluong}</td>` + //Số lượng sản phẩm của nhãn hiệu đó
         "</tr>");
     });
   })
@@ -116,10 +117,11 @@ function Show() {
             `<td>${warehouse.tenKV}</td>` +
             `<td>${warehouse.nh.tenNH}</td>` +
             `<td>${warehouse.tinhtrang}</td>` +
+            `<td>${warehouse.nh.soluong}</td>` + //Số lượng sản phẩm của nhãn hiệu đó
           "</tr>");
         });
     })
     .catch(error => console.log(error));
 }
 Show();
-Sort();
+// Sort();

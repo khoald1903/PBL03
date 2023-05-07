@@ -26,8 +26,6 @@ public class ProductDto {
 	private String hinhAnh;
 	@Column(name = "MoTa")
 	private String moTa;
-	@Column(name = "TrangThai")
-	private Boolean trangthai;
 	public ProductDto() {
 	}
 	public String getTenSP() {
@@ -78,14 +76,8 @@ public class ProductDto {
 	public void setMoTa(String moTa) {
 		this.moTa = moTa;
 	}
-	public Boolean getTrangthai() {
-		return trangthai;
-	}
-	public void setTrangthai(Boolean trangthai) {
-		this.trangthai = trangthai;
-	}
 	public ProductDto(String maSP, String tenSP, String maNH, String maMH, String maKM, Integer giaBan,
-			String hinhAnh, String moTa, Boolean trangthai) {
+			String hinhAnh, String moTa) {
 		super();
 		this.maSP = maSP;
 		this.tenSP = tenSP;
@@ -95,7 +87,6 @@ public class ProductDto {
 		this.giaBan = giaBan;
 		this.hinhAnh = hinhAnh;
 		this.moTa = moTa;
-		this.trangthai = trangthai;
 	}
 
 	
