@@ -8,6 +8,7 @@ function getUserInfo() {
 
 const User2 = getUserInfo();
 console.log(User2);
+
 if (User2 !== null) {
     if (User2.data.phanQuyen.maQuyen === '3') {
 
@@ -22,9 +23,10 @@ if (User2 !== null) {
 
         const QLNV = document.getElementById('QLNV');
         QLNV.style.display = 'none';
+     
+        
 
-        const thongke = document.getElementById('ThongKe');
-        thongke.style.display = 'none';
+       
     }
     else if (User2.data.phanQuyen.maQuyen === '2') {
         const dashboard = document.getElementById('Dashboard');

@@ -116,7 +116,7 @@
     <div class="main__detail">
       <div class="main__detail-img">
         <ul class="main__detail-img--list">
-          <li class="main__detail-img--item">
+          <!-- <li class="main__detail-img--item">
             <img src="./assets/img/CTSP_sub1.png" alt="" class="main__detail-img--sub">
           </li>
           <li class="main__detail-img--item">
@@ -124,7 +124,7 @@
           </li>
           <li class="main__detail-img--item">
             <img src="./assets/img/CTSP_sub3.png" alt="" class="main__detail-img--sub">
-          </li>
+          </li> -->
           <!-- <li class="main__detail-img--item">
                         <img src="./assets/img/CTSP_sub2.png" alt="" class="main__detail-img--sub">
                     </li> -->
@@ -174,15 +174,18 @@
             <div class="main__detail-description-item--line"></div>
           </li>
         </ul>
-        <ul class="main__detail-description-list">
+        <ul class="main__detail-description-list ">
           <li class="main__detail-description-item main__detail-description-item--title">
             <label for="">Đang chọn màu: </label>
           </li>
-          <li class="main__detail-description-item main__detail-description-item--content">
-            <label for="">ĐEN</label>
+          <li id="ColorName" class="main__detail-description-item main__detail-description-item--content">
+            <label for="ColorName"> </label>
           </li>
         </ul>
-        <ul class="main__detail-description-list">
+        <div class="main__detail-description-list--color">
+            
+        </div>
+        <ul class="main__detail-description-list ">
           <!-- <li class="main__detail-description-item color-radio">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -207,15 +210,19 @@
             <div class="main__detail-description-item--line"></div>
           </li>
         </ul>
-        <ul class="main__detail-description-list">
+        <ul class="main__detail-description-list ">
           <li class="main__detail-description-item main__detail-description-item--title">
-            <label for="">Đang chọn size: </label>
+            <label for="SizeName">Đang chọn size: </label>
           </li>
-          <li class="main__detail-description-item main__detail-description-item--content">
-            <label for="">38</label>
-          </li>
+         <li id="SizeName"class="main__detail-description-item main__detail-description-item--content">
+            <label for=""></label>
+          </li> 
+         
         </ul>
-        <ul class="main__detail-description-list">
+        <div class="main__detail-description-list--size">
+
+        </div>
+        <!-- <ul class="main__detail-description-list">
           <li class="main__detail-description-item size-radio">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
@@ -245,8 +252,8 @@
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
               <label class="form-check-label" for="inlineRadio3">41</label>
             </div>
-          </li>
-        </ul>
+          </li>  -->
+        </ul> 
         <ul class="main__detail-description-list">
           <li class="main__detail-description-item">
             <div class="main__detail-description-item--line"></div>
@@ -254,10 +261,10 @@
         </ul>
         <ul class="main__detail-description-list main__detail-description-list--quantity_addcart">
           <li class="main__detail-description-item main__detail-description-item--quantity">
-            <input type="number" class="input__number--quantity" min="1" value="1">
+            <input type="number" class="input__number--quantity" min="1">
           </li>
           <li class="main__detail-description-item main__detail-description-item--addcart">
-            <button type="button" class="btn__addcart">
+            <button id="addToCart" type="button" class="btn__addcart">
               <i class="fa-solid fa-cart-shopping icon-giohang"></i>
               THÊM VÀO GIỎ HÀNG
             </button>
@@ -445,7 +452,7 @@
       </ul>
       <ul class="main__similarproduct-btn">
         <li class="main__detail-description-item main__detail-description-item--addcart">
-          <button type="button" class="btn__xemthem">
+          <button id="addToCart" type="button" class="btn__xemthem">
             XEM THÊM
           </button>
         </li>
@@ -530,6 +537,7 @@
     </div>
   </footer>
   <script src="chitietsanpham.js"></script>
+
 </body>
 
 </html>

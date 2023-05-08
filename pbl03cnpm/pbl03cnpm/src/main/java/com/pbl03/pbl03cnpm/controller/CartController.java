@@ -66,13 +66,24 @@ public class CartController {
 		return ResponseEntity.status(HttpStatus.OK).body(
 				new ResponseObject("failed", "Can not find product to delete", ""));
 	}
-	@DeleteMapping("/delete/{makh}&{masp}&{makc}&{mamau}")
-	ResponseEntity<ResponseObject> deleteProduct(@PathVariable String makh, @PathVariable String masp, @PathVariable String makc, @PathVariable String mamau){
+//	@DeleteMapping("/delete/{makh}&{masp}&{makc}&{mamau}")
+//	ResponseEntity<ResponseObject> deleteProduct(@PathVariable String makh, @PathVariable String masp, @PathVariable String makc, @PathVariable String mamau){
+//		Optional<CartDTO> cartDTOs = cartDTORepo.findByMaKHAndMaSPAndMaMauAndMaKC(makh, masp, mamau, makc);
+//		if(cartDTOs.isPresent()) {
+//			cartDTORepo.delete(cartDTOs.get());
+//			return ResponseEntity.status(HttpStatus.OK).body(
+//					new ResponseObject("ok", "Delete successfully", ""));
+//		}
+//		return ResponseEntity.status(HttpStatus.OK).body(
+//				new ResponseObject("failed", "Can not find product to delete", ""));
+//	}
+	@DeleteMapping("/get/{makh}&{masp}&{makc}&{mamau}")
+	ResponseEntity<ResponseObject> getProduct(@PathVariable String makh, @PathVariable String masp, @PathVariable String makc, @PathVariable String mamau){
 		Optional<CartDTO> cartDTOs = cartDTORepo.findByMaKHAndMaSPAndMaMauAndMaKC(makh, masp, mamau, makc);
 		if(cartDTOs.isPresent()) {
-				cartDTORepo.delete(cartDTOs.get());
+			cartDTORepo.delete(cartDTOs.get());
 			return ResponseEntity.status(HttpStatus.OK).body(
-					new ResponseObject("ok", "Delete successfully", ""));
+					new ResponseObject("ok", "Delete successfully", cartDTOs.get()));
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(
 				new ResponseObject("failed", "Can not find product to delete", ""));

@@ -22,6 +22,9 @@ public class Cart {
 	@Column(name = "MaSP")
 	private String maSP;
 	
+	@Column(name = "TenSP")
+	private String tenSP;
+	
 	@Column(name = "MaMau")
 	private String maMau;
 	
@@ -41,18 +44,41 @@ public class Cart {
 	public Cart() {
 	}
 
-	public Cart(int id, String maKH, String maSP, String maMau, String maKC, Integer soLuong, Integer gia,
-			Customer customer) {
+	
+
+	public Cart(Integer id, String maKH, String maSP, String tenSP, String maMau, String maKC, Integer soLuong,
+			Integer gia, Customer customer) {
 		super();
 		this.id = id;
 		this.maKH = maKH;
 		this.maSP = maSP;
+		this.tenSP = tenSP;
 		this.maMau = maMau;
 		this.maKC = maKC;
 		this.soLuong = soLuong;
 		this.gia = gia;
 		this.customer = customer;
 	}
+
+
+
+	public String getTenSP() {
+		return tenSP;
+	}
+
+
+
+	public void setTenSP(String tenSP) {
+		this.tenSP = tenSP;
+	}
+
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 
 	public int getId() {
 		return id;

@@ -20,6 +20,9 @@ public class CartDTO {
 	@Column(name = "MaSP")
 	private String maSP;
 	
+	@Column(name = "TenSP")
+	private String tenSP;
+	
 	@Column(name = "MaMau")
 	private String maMau;
 	
@@ -33,16 +36,6 @@ public class CartDTO {
 	private Integer gia;
 	public CartDTO() {
 		// TODO Auto-generated constructor stub
-	}
-	public CartDTO(Integer id, String maKH, String maSP, String maMau, String maKC, Integer soLuong, Integer gia) {
-		super();
-		this.id = id;
-		this.maKH = maKH;
-		this.maSP = maSP;
-		this.maMau = maMau;
-		this.maKC = maKC;
-		this.soLuong = soLuong;
-		this.gia = gia;
 	}
 	public Integer getId() {
 		return id;
@@ -61,6 +54,12 @@ public class CartDTO {
 	}
 	public void setMaSP(String maSP) {
 		this.maSP = maSP;
+	}
+	public String getTenSP() {
+		return tenSP;
+	}
+	public void setTenSP(String tenSP) {
+		this.tenSP = tenSP;
 	}
 	public String getMaMau() {
 		return maMau;
@@ -86,10 +85,23 @@ public class CartDTO {
 	public void setGia(Integer gia) {
 		this.gia = gia;
 	}
+	public CartDTO(Integer id, String maKH, String maSP, String tenSP, String maMau, String maKC, Integer soLuong,
+			Integer gia) {
+		super();
+		this.id = id;
+		this.maKH = maKH;
+		this.maSP = maSP;
+		this.tenSP = tenSP;
+		this.maMau = maMau;
+		this.maKC = maKC;
+		this.soLuong = soLuong;
+		this.gia = gia;
+	}
 	@Override
 	public String toString() {
-		return "CartDTO [id=" + id + ", maKH=" + maKH + ", maSP=" + maSP + ", maMau=" + maMau + ", maKC=" + maKC
-				+ ", soLuong=" + soLuong + ", gia=" + gia + "]";
+		return "CartDTO [id=" + id + ", maKH=" + maKH + ", maSP=" + maSP + ", tenSP=" + tenSP + ", maMau=" + maMau
+				+ ", maKC=" + maKC + ", soLuong=" + soLuong + ", gia=" + gia + "]";
 	}
+	
 	
 }

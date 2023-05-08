@@ -1,7 +1,11 @@
 package com.pbl03.pbl03cnpm.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -46,13 +50,9 @@ public class Bill {
 	@Column(name = "Mota")
 	private String mota;
 	
-	@OneToMany
-	@JoinColumn(name = "MaHD", referencedColumnName = "MaHD")
-	private BillDetail billDetail;
-	
-	
+
 	public Bill(Integer id, Customer customer, Employee employee, Donvivanchuyen donvivanchuyen, String date,
-			Province province, String address, Integer sumPrice, Boolean status, String mota, BillDetail billDetail) {
+			Province province, String address, Integer sumPrice, Boolean status, String mota) {
 		super();
 		this.id = id;
 		this.customer = customer;
@@ -64,16 +64,8 @@ public class Bill {
 		this.sumPrice = sumPrice;
 		this.status = status;
 		this.mota = mota;
-		this.billDetail = billDetail;
 	}
 
-	public BillDetail getBillDetail() {
-		return billDetail;
-	}
-
-	public void setBillDetail(BillDetail billDetail) {
-		this.billDetail = billDetail;
-	}
 
 	public Bill() {
 	}

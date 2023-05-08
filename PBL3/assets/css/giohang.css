@@ -1,28 +1,34 @@
-
-ul{
+ul {
     list-style-type: none;
-} 
+}
 
-.product__header-list{
+.product__header-list {
     background-color: rgb(255, 255, 255);
     border: 0.3px solid rgb(164, 145, 145);
     display: grid;
     grid-template-columns: 28% auto auto auto auto auto auto;
+    height: 40px;
+    text-align: center;
+
 }
-.product__header-list > li{
+
+.product__header-list>li {
     font-size: 1.7rem;
+    line-height: 40px;
 }
-.product__header-item--sanpham
-{
+
+.product__header-item--sanpham {
     padding-left: 40px;
 }
+
 .product__header-item--mausac {
     padding-left: 20px;
 }
-.product__header-item--thaotac
-{
+
+.product__header-item--thaotac {
     padding-right: 20px;
 }
+
 /*  */
 
 
@@ -30,16 +36,20 @@ ul{
     max-width: 1100px;
     margin: 0 auto;
 }
-.product__header{
+
+.product__header {
     margin-top: 50px;
 }
+
 .product__list {
-    
+
     border: 0.3px solid rgb(164, 145, 145);
 }
-.product__detail{
+
+.product__detail {
     border: 0.3px solid rgb(164, 145, 145);
 }
+
 .product__detail-list {
     background-color: rgb(255, 255, 255);
     display: grid;
@@ -47,22 +57,27 @@ ul{
     margin-bottom: 0px;
     padding: 10px 0 10px 20px;
 }
-.product__detail-list > li {
+
+.product__detail-list>li {
     margin: auto 0;
     font-size: 1.4rem;
 }
+
 .product-price {
     font-weight: 700;
 }
+
 .product-total {
     font-weight: 700;
     color: red;
 }
-.product__detail-line{
-    margin: 0 auto;   
+
+.product__detail-line {
+    margin: 0 auto;
     max-width: 900px;
     border: 0.5px dashed rgb(162, 145, 145);
 }
+
 /*  */
 
 .content-title {
@@ -130,62 +145,70 @@ ul{
     z-index: -1;
 } */
 
-.main__title{
-   margin: 30px 0 40px 30px;
-   display: flex;
-}
-.main__title-item--line{
-    flex: 1;
-}
-.main__title-item--midline {
-    border: 0.3px dashed rgb(194, 187, 187);
-    margin: 15px 10px;
+.main__title {
+    margin: 30px 0 40px 30px;
+    display: flex;
 }
 
-.shoppingcart{
+.main__title-item--line {
+    flex: 1;
+}
+
+.main__title-item--midline {
+    border: 0.3px dashed rgb(194, 187, 187);
+    margin: 23px 10px;
+}
+
+.shoppingcart {
     margin: 40px 0 0 190px;
     display: flex;
     flex-direction: column;
 }
-.shoppingcart__list{
-    list-style: none;   
+
+.shoppingcart__list {
+    list-style: none;
 }
-.shoppingcart__list > li{
+
+.shoppingcart__list>li {
     display: inline-block;
     font-size: 20px;
 }
-.shoppingcart__item--price-tongtienhang{
+
+.shoppingcart__item--price-tongtienhang {
     padding-left: 100px;
     font-weight: 700;
 }
-.shoppingcart__item--price-phivanchuyen{
+
+.shoppingcart__item--price-phivanchuyen {
     padding-left: 105px;
     font-weight: 700;
 }
-.shoppingcart__item--price-tong{
+
+.shoppingcart__item--price-tong {
     padding-left: 210px;
     font-weight: 700;
     color: red;
 }
-.shoppingcart__line{
+
+.shoppingcart__line {
     margin: 20px;
     max-width: 500px;
     border: 0.3px dashed rgb(123, 114, 114);
 }
 
-.informationtransportation{    
+.informationtransportation {
     max-width: 1100px;
     max-height: 400px;
     display: flex;
     margin: 0 auto;
     border: 0.3px solid rgba(141, 126, 126, 0.607);
-    
+
 }
-.informationtransportation__img
-{
-    
+
+.informationtransportation__img {
+
     border-right: 0.5px solid black;
-     /* display: flex;
+    /* display: flex;
     justify-content: center;
     max-width: 400px;
     box-sizing: border-box; 
@@ -193,28 +216,33 @@ ul{
     object-fit: contain;  
      */
 }
-.informationtransportation__infor
-{   
+
+.informationtransportation__infor {
     /* background-color: rgba(27, 25, 25, 0.647); */
     background-color: #666565;
     flex: 1;
 }
-.informationtransportation__infor--title{
+
+.informationtransportation__infor--title {
     color: white;
-    padding-left: 28px;
+    padding-left: 220px;
     margin-top: 20px;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 3.0rem;
+    /* margu=in: 0 auto */
 }
 
-.informationtransportation__infor-list > li{
+.informationtransportation__infor-list>li {
     margin: 20px;
 }
+
 .informationtransportation__infor--button {
     padding-top: 20px;
     display: flex;
     justify-content: space-evenly;
-    
+
 }
+
 .button-thanhtoan {
     color: white;
     font-weight: 400;
@@ -230,42 +258,50 @@ ul{
     outline: none;
     text-decoration: none;
     background-color: #FEA116;
-    font-size: 15px;   
+    font-size: 15px;
 }
-.button-thanhtoan:hover{
+
+.button-thanhtoan:hover {
     background-color: #fea116de;
 }
+
 .form-control {
-    font-size: 1.4rem !important;
+    font-size: 1.6rem !important;
+    width: 90%;
+    height: 30px;
 }
 
 
-.header__navbar{
+.header__navbar {
     display: flex;
     justify-content: space-between;
     height: 80px;
 }
+
 .header__navbar-list {
     margin: auto 0px;
     padding-right: 30px;
 }
-.header__navbar-item{
-    display :inline-block;
-    font-size: 1.6rem;   
+
+.header__navbar-item {
+    display: inline-block;
+    font-size: 1.6rem;
     font-weight: 500;
     margin: 0 16px;
 
     position: relative;
 }
+
 .header__navbar-item--has-notify:hover .header__dropdown--NAM,
- .header__navbar-item--has-notify:hover .header__dropdown--NU,
+.header__navbar-item--has-notify:hover .header__dropdown--NU,
 .header__navbar-item--has-notify:hover .header__dropdown--icon {
     display: block;
 }
+
 /* Di chuột vào NAM */
-.header__dropdown--NAM, 
+.header__dropdown--NAM,
 .header__dropdown--NU,
-.header__dropdown--icon{
+.header__dropdown--icon {
     position: absolute;
     /* top: 118%; */
     left: -10px;
@@ -282,10 +318,12 @@ ul{
     /* Chỉ hiện thị khi hover vào Thông báo */
     display: none;
 }
+
 .header__dropdown--icon {
     left: -30px;
     width: 140px;
 }
+
 /*  Di chuột vào item "Thông báo" hiện bảng này*/
 @keyframes headerNotifyGrowth {
 
@@ -301,102 +339,123 @@ ul{
     }
 
 }
-.header__dropdown--NAM-list, 
+
+.header__dropdown--NAM-list,
 .header__dropdown--NU-list,
-.header__dropdown--icon-list{
+.header__dropdown--icon-list {
     display: flex;
     flex-direction: column;
     padding-left: 10px;
 }
+
 .header__dropdown--NAM-item,
 .header__dropdown--NU-,
-.header__dropdown--icon-item{
+.header__dropdown--icon-item {
     padding: 5px 0;
     font-size: 1.4rem;
 }
+
 .header__dropdown--NAM-link,
 .header__dropdown--NU-link,
 .header__dropdown--icon-link {
     text-decoration: none;
     color: black;
 }
+
 .header__dropdown--NAM-link:hover,
 .header__dropdown--NU-link:hover,
-.header__dropdown--icon-link:hover{
+.header__dropdown--icon-link:hover {
     color: rgba(234, 234, 99, 0.743)
 }
 
-.header__navbar-item--a{
+.header__navbar-item--a {
     text-decoration: none;
     color: white;
 }
-.header__navbar-item--a:hover{
+
+.header__navbar-item--a:hover {
     color: yellow;
     cursor: pointer;
 }
-.header__navbar-item--logo{
+
+.header__navbar-item--logo {
     width: 300px;
     height: 70px;
 
 }
-.header__navbar-item--icon-giohang{
+
+.header__navbar-item--icon-giohang {
     color: #FAD410;
 }
-.header__title{
+
+.header__title {
     display: flex;
     flex-direction: column;
 }
-.header__title-list{
+
+.header__title-list {
     margin: 0 auto;
 }
-.header__title--large{
+
+.header__title--large {
     padding-top: 50px;
     font-size: 50px;
     font-weight: 700;
     color: white;
 }
 
-.header__title-item{
+.header__title-item {
     display: inline-block;
 }
-.header__title--small > li{
+
+.header__title--small>li {
     font-size: 18px;
     padding: 20px 5px 0 5px;
     font-weight: 500;
     color: white
 }
-.header__title-item--giohang{
+
+.header__title-item--giohang {
     color: #FAD410 !important;
 
 }
 
 
 /* Footer */
-.footer__infor{
+.footer__infor {
     margin-top: 70px;
     border: 0.5px solid rgb(44, 40, 40);
     background-color: antiquewhite;
     display: flex;
     justify-content: space-around;
-    
+
 }
+
 /* ul */
-.footer__list{
+.footer__list {
     padding-top: 30px;
 }
-.footer__item{
+
+.footer__item {
     padding: 8px;
 }
-.footer__item--icon{
-    color: black;  
-    font-size: 30px;  
+
+.footer__item--icon {
+    color: black;
+    font-size: 30px;
 }
-.footer__item--danhmucsp{
+
+.footer__item--danhmucsp {
     font-size: 1.4rem;
     color: black;
     text-decoration: none;
 }
-.footer__item--contact{
+
+.footer__item--contact {
     font-weight: 400;
     max-width: 300px;
+}
+.input_infor {
+    width: 140px !important
+    ;
 }

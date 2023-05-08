@@ -46,43 +46,44 @@
             <span class="logo_name">NKH SHOP</span>
         </div>
        <ul class="nav-links">
-            <li>
-                <a href="Dashboard.html">
+            <li id="Dashboard">
+                <a href="/Admin Page/Dashboard.html" class="active">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="QLSP.html" >
+            <li id="QLSP">
+                <a href="/Admin Page/QLSP.html">
                     <i class='bx bx-box'></i>
                     <span class="links_name">Quản lí sản phẩm</span>
                 </a>
             </li>
-            <li>
-                <a href="QLDH.html" >
+            <li id="QLDH">
+                <a href="/Admin Page/QLDH.html">
                     <i class='bx bx-list-ul'></i>
                     <span class="links_name">Quản lí đơn hàng</span>
                 </a>
             </li>
-            <li>
-                <a href="QLTK_Show.html">
+            <li id="QLTK">
+                <a href="/Admin Page/QLTK_Show.html">
                     <i class='bx bxs-user-account'></i>
                     <span class="links_name">Quản lí tài khoản</span>
                 </a>
             </li>
-            <li>
-                <a href="QLKH.html" class="active">
+            <li id="QLKH">
+                <a href="/Admin Page/QLKH.html">
                     <i class='bx bxs-user-circle'></i>
                     <span class="links_name">Quản lí khách hàng </span>
                 </a>
             </li>
-            <li>
-                <a href="QLNV.html">
+            <li id="QLNV">
+                <a href="/Admin Page/QLNV.html">
                     <i class='bx bx-user'></i>
                     <span class="links_name">Quản lí nhân viên</span>
                 </a>
             </li>
-            <li id="QLNCC">
+        
+            <!-- <li id="QLNCC">
                 <a href="/Admin Page/QLCC.html">
                     <i class="fa-solid fa-truck-fast" style="color: #ffffff;"></i>
                     <span class="links_name">Quản lí nhà cung cấp</span>
@@ -93,7 +94,7 @@
                     <i class="fa-solid fa-warehouse" style="color: #ffffff;"></i>
                     <span class="links_name">Quản lí kho hàng</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 
@@ -103,10 +104,10 @@
                 <i class='bx bx-menu sidebarBtn'></i>
                 <span class="dashboard">Quản lý khách hàng</span>
             </div>
-            <a href="" class="sidebar-button anchor_logout">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                <span class="dashboard">Đăng xuất</span>
-            </a>
+             <a id="dangxuat" class="sidebar-button anchor_logout">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span  class="dashboard">Đăng xuất</span>
+      </a>
         </nav>
 
         <div class="home-content">
@@ -167,6 +168,7 @@
  <script src="/Admin Page/js/QLKH.js"></script>
     <script src="/Admin Page/js/app.js"></script>
     <script src="/Admin_Page.js"></script>
+     <script src="/logout.js"></script>
 </body>
 
 </html>

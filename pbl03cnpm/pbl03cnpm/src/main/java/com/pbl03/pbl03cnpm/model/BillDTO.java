@@ -2,6 +2,8 @@ package com.pbl03.pbl03cnpm.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -12,26 +14,22 @@ import jakarta.persistence.Table;
 public class BillDTO {
 	@Id
 	@Column(name = "MaHD")
-	private Integer id;
+	private Integer maHD;
 
-	@ManyToOne
-	@JoinColumn(name = "MaKH", referencedColumnName = "MaKH")
-	private Customer customer;
+	@Column(name = "MaKH")
+	private String maKH;
 	
-	@ManyToOne
-	@JoinColumn(name = "MaNV", referencedColumnName = "MaNV")
-	private Employee employee;
+	@Column(name = "MaNV")
+	private String maNV;
 	
-	@ManyToOne
-	@JoinColumn(name = "MaDVVC", referencedColumnName = "MaDVVC")
-	private Donvivanchuyen donvivanchuyen;
+	@Column(name = "MaDVVC")
+	private String maDVVC;
 	
 	@Column(name = "NgayBan")
 	private String date;
 	
-	@ManyToOne
-	@JoinColumn(name = "MaTinh", referencedColumnName = "MaTinh")
-	private Province province;
+	@Column(name = "MaTinh")
+	private String maTinh;
 	
 	@Column(name = "DiaChi")
 	private String address;
@@ -47,43 +45,45 @@ public class BillDTO {
 	public BillDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public BillDTO(Integer id, Customer customer, Employee employee, Donvivanchuyen donvivanchuyen, String date,
-			Province province, String address, Integer sumPrice, Boolean status, String mota) {
+	public BillDTO(Integer maHD, String maKH, String maNV, String maDVVC, String date, String maTinh, String address,
+			Integer sumPrice, Boolean status, String mota) {
 		super();
-		this.id = id;
-		this.customer = customer;
-		this.employee = employee;
-		this.donvivanchuyen = donvivanchuyen;
+		this.maHD = maHD;
+		this.maKH = maKH;
+		this.maNV = maNV;
+		this.maDVVC = maDVVC;
 		this.date = date;
-		this.province = province;
 		this.address = address;
 		this.sumPrice = sumPrice;
 		this.status = status;
 		this.mota = mota;
+		this.maTinh = maTinh;
 	}
-	public Integer getId() {
-		return id;
+	
+
+	public Integer getMaHD() {
+		return maHD;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setMaHD(Integer maHD) {
+		this.maHD = maHD;
 	}
-	public Customer getCustomer() {
-		return customer;
+	public String getMaKH() {
+		return maKH;
 	}
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
 	}
-	public Employee getEmployee() {
-		return employee;
+	public String getMaNV() {
+		return maNV;
 	}
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setMaNV(String maNV) {
+		this.maNV = maNV;
 	}
-	public Donvivanchuyen getDonvivanchuyen() {
-		return donvivanchuyen;
+	public String getMaDVVC() {
+		return maDVVC;
 	}
-	public void setDonvivanchuyen(Donvivanchuyen donvivanchuyen) {
-		this.donvivanchuyen = donvivanchuyen;
+	public void setMaDVVC(String maDVVC) {
+		this.maDVVC = maDVVC;
 	}
 	public String getDate() {
 		return date;
@@ -91,11 +91,12 @@ public class BillDTO {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public Province getProvince() {
-		return province;
+	
+	public String getMaTinh() {
+		return maTinh;
 	}
-	public void setProvince(Province province) {
-		this.province = province;
+	public void setMaTinh(String maTinh) {
+		this.maTinh = maTinh;
 	}
 	public String getAddress() {
 		return address;
@@ -123,9 +124,10 @@ public class BillDTO {
 	}
 	@Override
 	public String toString() {
-		return "BillDTO [id=" + id + ", customer=" + customer + ", employee=" + employee + ", donvivanchuyen="
-				+ donvivanchuyen + ", date=" + date + ", province=" + province + ", address=" + address + ", sumPrice="
-				+ sumPrice + ", status=" + status + ", mota=" + mota + "]";
+		return "BillDTO [id=" + maHD + ", maKH=" + maKH + ", maNV=" + maNV + ", maDVVC=" + maDVVC + ", date=" + date
+				+ ", province=" + maTinh + ", address=" + address + ", sumPrice=" + sumPrice + ", status=" + status
+				+ ", mota=" + mota + "]";
 	}
+	
 	
 }

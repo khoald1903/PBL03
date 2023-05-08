@@ -47,10 +47,24 @@ public class ProductDetailController {
 	}
 	
 	@GetMapping("get/{masp}&{makc}&{mamau}")
-	ProductDetail getAlls(@PathVariable String masp, @PathVariable String makc, @PathVariable String mamau) {
-		return productDetailRepo.findByMaSPAndMaKCAndMaMau(masp, makc, mamau).get();
+	ResponseEntity<ResponseObject> getAlls(@PathVariable String masp, @PathVariable String makc, @PathVariable String mamau) {
+		Optional<ProductDetail> temp =productDetailRepo.findByMaSPAndMaKCAndMaMau(masp, makc, mamau);
+		if(temp.isPresent())
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("ok", "Find successfully", productDetailRepo.findByMaSPAndMaKCAndMaMau(masp, makc, mamau).get())); 
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("failded", "Cannot Find", ""));
 	}
 	
+	@GetMapping("getamount/{masp}&{makc}&{mamau}")
+	ResponseEntity<ResponseObject> getAmount(@PathVariable String masp, @PathVariable String makc, @PathVariable String mamau) {
+		Optional<ProductDetail> temp = productDetailRepo.findByMaSPAndMaKCAndMaMau(masp, makc, mamau);
+		if(temp.isPresent())
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("ok", "Find successfully", productDetailRepo.findByMaSPAndMaKCAndMaMau(masp, makc, mamau).get().getSoLuong())); 
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("failded", "Cannot Find", ""));
+	}
 	@GetMapping("/getAllKC/{id}")
 	List<Size> getAllKC(@PathVariable String id){
 		List<Size> kc = new ArrayList<>();

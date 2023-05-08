@@ -2,14 +2,19 @@ package com.pbl03.pbl03cnpm.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "chitiethoadon")
 public class BillDetail {
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	@Column(name = "MaSP")
 	private String maSP;
 	@Column(name = "TenSP")
@@ -20,10 +25,15 @@ public class BillDetail {
 	private String maKC;
 	@Column(name = "SoLuong")
 	private Integer soluong;
+	@Column(name = "MaHD")
+	private Integer maHD;
+	
+
 	public BillDetail() {
 		// TODO Auto-generated constructor stub
 	}
-	public BillDetail(String id, String maSP, String tenSP, String maMau, String maKC, Integer soluong) {
+	
+	public BillDetail(Integer id, String maSP, String tenSP, String maMau, String maKC, Integer soluong, Integer maHD) {
 		super();
 		this.id = id;
 		this.maSP = maSP;
@@ -31,11 +41,21 @@ public class BillDetail {
 		this.maMau = maMau;
 		this.maKC = maKC;
 		this.soluong = soluong;
+		this.maHD = maHD;
 	}
-	public String getId() {
+
+	public Integer getMaHD() {
+		return maHD;
+	}
+
+	public void setMaHD(Integer maHD) {
+		this.maHD = maHD;
+	}
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getMaSP() {
