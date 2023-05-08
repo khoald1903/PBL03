@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,38 +54,106 @@ public class BillController {
 	private BillDetailRepo billDetailRepo;
 	@GetMapping("")
 	List<Bill> getAllBills(){
-		return billRepo.findAll();
+		return billRepo.findAll().stream()
+				.filter(t -> t.getStatus() == true)
+				.toList();
 	}
 	
-	@GetMapping("/{id}")
-	List<BillDTO> getBillByMaKH(@PathVariable String id){
-		List<BillDTO> bills = billDTORepo.findByMaKH(id);
+	@GetMapping("get/{id}")
+	ResponseEntity<ResponseObject> getBillByMaKH(@PathVariable String id){
+		List<Bill> bills =	billRepo.findByCustomerMaKH(id).stream().filter(t -> t.getStatus() == true).toList();
 		if(bills.size() > 0) {
-			return bills;
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("ok", "Find successfully", bills));
 		}
-		return bills;
-	}
-	@GetMapping("/get")
-	BillDTO addBilll(@RequestBody BillDTO bill){
-		return bill;
+		return ResponseEntity.status(HttpStatus.OK).body(
+				new ResponseObject("failded", "Cannot Find", ""));
 	}
 	
+	@GetMapping("/getdetail")
+	List<BillDetail> getAllBillsd(){
+		return billDetailRepo.findAll();
+	}
+	
+	//get list sp
+	@GetMapping("/detail/{id}")
+	ResponseEntity<ResponseObject> getBillDetailByID(@PathVariable String id){
+		List<BillDetail> bills = billDetailRepo.findByMaHD(id);
+		if(bills.size() > 0)
+		{
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("ok", "Find successfully", bills));
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(
+				new ResponseObject("failded", "Cannot Find", ""));
+	}
+	
+	//add hoá đơn trước
 	@PostMapping("/add")
 	@Transactional
 	ResponseEntity<ResponseObject> addBill(@RequestBody BillDTO bill){
+		boolean exist = billDTORepo.existsById(bill.getMaHD());
+		if(exist) {
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("failded", "ID Bill has existed!", ""));
+		}
 		em.createNativeQuery("SET foreign_key_checks = 0;").executeUpdate();
 		billDTORepo.save(bill);
 		em.createNativeQuery("SET foreign_key_checks = 1;").executeUpdate();
 		return ResponseEntity.status(HttpStatus.OK).body(
 				new ResponseObject("ok", "Create successfully", ""));
 	}
+	//add sp sau
 	@PostMapping("/addbilldetail")
-	@Transactional
 	ResponseEntity<ResponseObject> addBillDetail(@RequestBody BillDetail billdetail){
-		em.createNativeQuery("SET foreign_key_checks = 0;").executeUpdate();
+		Optional<BillDetail> product = billDetailRepo.findByMaHDAndMaMauAndMaKC(billdetail.getMaHD(), billdetail.getMaMau(), billdetail.getMaKC());
+		if(product.isPresent()) {
+			BillDetail temp = product.get();
+			int amount = temp.getSoluong();
+			temp.setSoluong(amount + billdetail.getSoluong());
+			billDetailRepo.save(temp);
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("ok", "Increased amount successfully", ""));
+		}
 		billDetailRepo.save(billdetail);
-		em.createNativeQuery("SET foreign_key_checks = 1;").executeUpdate();
 		return ResponseEntity.status(HttpStatus.OK).body(
 				new ResponseObject("ok", "Create successfully", ""));
+	}
+	@DeleteMapping("deletedetail/{mahd}&{masp}&{mamau}&{makc}")
+	ResponseEntity<ResponseObject> deleteProductInBill(@PathVariable String mahd ,@PathVariable String masp, @PathVariable String mamau, @PathVariable String makc){
+		Optional<BillDetail> deleteBill = billDetailRepo.findByMaHDAndMaSPAndMaKCAndMaMau(mahd ,masp, makc, mamau);
+		if(deleteBill.isPresent()) {
+			BillDetail temp = deleteBill.get();
+			billDetailRepo.delete(temp);
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("ok", "Delete successfully", ""));
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(
+				new ResponseObject("failed", "Can not find bill to delete", ""));
+	}
+	@PutMapping("delete/{mahd}")
+	ResponseEntity<ResponseObject> deleteBill(@PathVariable String mahd){
+		Optional<BillDTO> deleteBill = billDTORepo.findById(mahd);
+		if(deleteBill.isPresent()) {
+			BillDTO temp = deleteBill.get();
+			temp.setStatus(false);
+			billDTORepo.save(temp);
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("ok", "Delete successfully", ""));
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(
+				new ResponseObject("failed", "Can not find bill to delete", ""));
+	}
+	
+	@PutMapping("update/{mahd}")
+	ResponseEntity<ResponseObject> updateBill(@RequestBody BillDTO bill){
+		Optional<BillDTO> billdto = billDTORepo.findById(bill.getMaHD());
+		if(billdto.isPresent()) {
+			billDTORepo.save(bill);
+			return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("ok", "Update successfully", bill));
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(
+				new ResponseObject("failed", "Cannot Update", ""));
 	}
 }

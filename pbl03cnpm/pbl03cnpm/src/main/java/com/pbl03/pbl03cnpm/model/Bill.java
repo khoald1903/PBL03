@@ -4,12 +4,9 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,7 +14,7 @@ import jakarta.persistence.Table;
 public class Bill {
 	@Id
 	@Column(name = "MaHD")
-	private Integer id;
+	private String maHD;
 
 	@ManyToOne
 	@JoinColumn(name = "MaKH", referencedColumnName = "MaKH")
@@ -51,10 +48,10 @@ public class Bill {
 	private String mota;
 	
 
-	public Bill(Integer id, Customer customer, Employee employee, Donvivanchuyen donvivanchuyen, String date,
+	public Bill(String maHD, Customer customer, Employee employee, Donvivanchuyen donvivanchuyen, String date,
 			Province province, String address, Integer sumPrice, Boolean status, String mota) {
 		super();
-		this.id = id;
+		this.maHD = maHD;
 		this.customer = customer;
 		this.employee = employee;
 		this.donvivanchuyen = donvivanchuyen;
@@ -80,15 +77,15 @@ public class Bill {
 		this.mota = mota;
 	}
 
-
-
-	public Integer getId() {
-		return id;
+	public String getMaHD() {
+		return maHD;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+
+	public void setMaHD(String maHD) {
+		this.maHD = maHD;
 	}
+
 
 	public Customer getCustomer() {
 		return customer;
@@ -156,7 +153,7 @@ public class Bill {
 
 	@Override
 	public String toString() {
-		return "Bill [id=" + id + ", customer=" + customer + ", employee=" + employee + ", donvivanchuyen="
+		return "Bill [id=" + maHD + ", customer=" + customer + ", employee=" + employee + ", donvivanchuyen="
 				+ donvivanchuyen + ", date=" + date + ", province=" + province + ", address=" + address + ", sumPrice="
 				+ sumPrice + ", status=" + status + "]";
 	}

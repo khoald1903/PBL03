@@ -26,14 +26,13 @@ public class BillDetail {
 	@Column(name = "SoLuong")
 	private Integer soluong;
 	@Column(name = "MaHD")
-	private Integer maHD;
+	private String maHD;
 	
-
 	public BillDetail() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public BillDetail(Integer id, String maSP, String tenSP, String maMau, String maKC, Integer soluong, Integer maHD) {
+	public BillDetail(Integer id, String maSP, String tenSP, String maMau, String maKC, Integer soluong, String maHD) {
 		super();
 		this.id = id;
 		this.maSP = maSP;
@@ -44,11 +43,11 @@ public class BillDetail {
 		this.maHD = maHD;
 	}
 
-	public Integer getMaHD() {
+	public String getMaHD() {
 		return maHD;
 	}
 
-	public void setMaHD(Integer maHD) {
+	public void setMaHD(String maHD) {
 		this.maHD = maHD;
 	}
 

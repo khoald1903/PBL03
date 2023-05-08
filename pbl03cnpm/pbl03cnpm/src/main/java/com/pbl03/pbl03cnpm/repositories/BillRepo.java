@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.pbl03.pbl03cnpm.model.Bill;
 
-public interface BillRepo extends JpaRepository<Bill, Integer>{
+public interface BillRepo extends JpaRepository<Bill, String>{
+
+	List<Bill> findByCustomerMaKH(String id);
 
 }

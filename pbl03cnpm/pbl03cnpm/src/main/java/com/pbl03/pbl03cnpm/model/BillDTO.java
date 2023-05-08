@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class BillDTO {
 	@Id
 	@Column(name = "MaHD")
-	private Integer maHD;
+	private String maHD;
 
 	@Column(name = "MaKH")
 	private String maKH;
@@ -45,7 +45,7 @@ public class BillDTO {
 	public BillDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public BillDTO(Integer maHD, String maKH, String maNV, String maDVVC, String date, String maTinh, String address,
+	public BillDTO(String maHD, String maKH, String maNV, String maDVVC, String date, String maTinh, String address,
 			Integer sumPrice, Boolean status, String mota) {
 		super();
 		this.maHD = maHD;
@@ -61,10 +61,10 @@ public class BillDTO {
 	}
 	
 
-	public Integer getMaHD() {
+	public String getMaHD() {
 		return maHD;
 	}
-	public void setMaHD(Integer maHD) {
+	public void setMaHD(String maHD) {
 		this.maHD = maHD;
 	}
 	public String getMaKH() {
