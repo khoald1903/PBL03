@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pbl03.pbl03cnpm.model.Bill;
 import com.pbl03.pbl03cnpm.model.BillDTO;
 import com.pbl03.pbl03cnpm.model.BillDetail;
+import com.pbl03.pbl03cnpm.model.Donvivanchuyen;
 import com.pbl03.pbl03cnpm.model.ProductDetail;
+import com.pbl03.pbl03cnpm.model.Province;
 import com.pbl03.pbl03cnpm.model.ResponseObject;
 import com.pbl03.pbl03cnpm.repositories.BillDTORepo;
 import com.pbl03.pbl03cnpm.repositories.BillDetailRepo;
@@ -58,7 +60,34 @@ public class BillController {
 				.filter(t -> t.getStatus() == true)
 				.toList();
 	}
-	
+	@GetMapping("/province")
+	List<Province> getProvinces(){
+		return provinceRepo.findAll();
+	}
+	@GetMapping("/dvvc")
+	List<Donvivanchuyen> getDvvc(){
+		return donvivanchuyenRepo.findAll();
+	}
+	@GetMapping("/province/get/{id}")
+	ResponseEntity<ResponseObject> getProvinces(String id){
+		 Optional<Province> optional = provinceRepo.findById(id);
+		 if(optional.isPresent()) {
+			 return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject("ok", "Find successfully", optional.get()));
+		 }
+		 return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("failded", "Cannot Find", ""));
+	}
+	@GetMapping("/dvvc/get/{id}")
+	ResponseEntity<ResponseObject> getDvvc(String id){
+		Optional<Donvivanchuyen> optional = donvivanchuyenRepo.findById(id);
+		if(optional.isPresent()) {
+			 return ResponseEntity.status(HttpStatus.OK).body(
+						new ResponseObject("ok", "Find successfully", optional.get()));
+		 }
+		 return ResponseEntity.status(HttpStatus.OK).body(
+					new ResponseObject("failded", "Cannot Find", ""));
+	}
 	@GetMapping("get/{id}")
 	ResponseEntity<ResponseObject> getBillByMaKH(@PathVariable String id){
 		List<Bill> bills =	billRepo.findByCustomerMaKH(id).stream().filter(t -> t.getStatus() == true).toList();

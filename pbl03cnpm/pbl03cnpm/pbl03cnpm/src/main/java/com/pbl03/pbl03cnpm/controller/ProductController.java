@@ -94,6 +94,49 @@ public class ProductController {
 		}
 		return temp;
 	}
+	
+	List<String> getKC(String id){
+		List<ProductDetail> products = productDetailRepo.findByMaSP(id);
+		List<String> size = new ArrayList<>();
+		for(ProductDetail i : products) {
+			size.add(i.getMaKC());
+		}
+		return size;
+	}
+	
+
+	@GetMapping("/filter/min={min}&max={max}&mau={mamau}&kc={makc}&nh={manh}")
+	ResponseEntity<ResponseObject> filter(@PathVariable Integer min, @PathVariable Integer max, @PathVariable String mamau, @PathVariable String makc, @PathVariable String manh){
+		List<Product> products = getAll().stream()
+								.filter(t -> t.getGiaban() >= min && t.getGiaban() <= max)
+								.toList();
+		if(!manh.equals("all")) {
+			products = products.stream().filter(t -> t.getNh().getMaNH().equals(manh)).toList();
+		}
+		if(!makc.equals("all")) {
+			List<Product> temp = new ArrayList<>();
+			for(Product i : products) {
+				if(productDetailRepo.findByMaSPAndMaKC(i.getMaSP(), makc).get().size() > 0)
+				{
+					temp.add(i);
+				}
+			}
+			products = temp;
+		}
+		if(!mamau.equals("all")) {
+			List<Product> temp1 = new ArrayList<>();
+			for(Product i : products) {
+				if(productDetailRepo.findByMaSPAndMaMau(i.getMaSP(), mamau).get().size() > 0)
+				{
+					temp1.add(i);
+				}
+			}
+			products = temp1;
+		}
+		
+		return ResponseEntity.status(HttpStatus.OK).body(
+				new ResponseObject("ok", "Find successfully", products));
+	}
 	@GetMapping("/dto")
 	List<ProductDto> getProductDto(){
 		return productDtoRepo.findAll();
@@ -182,5 +225,6 @@ public class ProductController {
 		return ResponseEntity.status(HttpStatus.OK).body(
 				new ResponseObject("ok", "Create successfully", newProduct));
 	}
+	
 
 }
