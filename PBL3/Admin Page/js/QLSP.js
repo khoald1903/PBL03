@@ -146,7 +146,7 @@ function Show() {
     .then(data => {
       console.log(data);
       data.forEach(user => {
-        console.log(user.maSP);
+        //console.log(user.maSP);
         for (let i = 0; i < user.productDetails.length; i++){
         if ($("#productTable tbody").length == 0) {
           $("#productTable").append("<tbody></tbody>");
